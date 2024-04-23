@@ -1,0 +1,6 @@
+*apiKey
+.apiKey
+.DS_Store
+.vscode
+*apiKey.js
+.apiKey.js
