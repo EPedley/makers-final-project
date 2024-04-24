@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { MainPage } from "./pages/Main/MainPage";
+import { MainPage } from "./pages/MainPage";
 
 // docs: https://reactrouter.com/en/main/start/overview
 const router = createBrowserRouter([
