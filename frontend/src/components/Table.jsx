@@ -4,7 +4,7 @@ export const Table = ({ data }) => {
 // End date
   const endDate = data[data.length - 1].date
 
-  const cities = ["location"]
+  const cities = ["London"]
 
   console.log('Data received in Table component:', data);
 
