@@ -4,7 +4,10 @@ export const Table = ({ data }) => {
 // End date
   const endDate = data[data.length - 1].date
 
+  // const dates = [...new Set(arrayOfDicts.map(item => item.date))];
+
   const cities = ["London"]
+  // const cities = [...new Set(arrayOfDicts.map(item => item.name))];
 
   console.log('Data received in Table component:', data);
 
