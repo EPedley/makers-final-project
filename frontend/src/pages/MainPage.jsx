@@ -1,7 +1,6 @@
-// import { Table } from "../components/Table";
+import { Table } from "../components/Table";
 // import  getData  from "../services/requests";
 import { useState, useEffect } from "react";
-import { Table } from "../components/Table";
 import loadDataFromMongoDB from "../services/requests"
 
 export const MainPage = () => {
@@ -11,24 +10,32 @@ export const MainPage = () => {
         console.log("IM IN THE USE EFFECT")
         loadDataFromMongoDB()
         .then(data => {
-            console.log('Data loaded from MongoDB:', data);
             setData(data)
             // console.log('Data loaded from MongoDB:', data);
         })
         .catch(error => {
             console.error('An error occurred:', error);
+            setData([])
         });
     }, []);
+
+    // useEffect(() => {
+    //   const newData = [{aqi: "aqi1", date: "date1", location: "location1"}, {aqi: "aqi2", date: "date2", location: "location2"}]
+    //   setData(newData)
+    // }, []);
   
     return (
         <div className="mainPage">
-            <h1>Welcome to Terra!</h1>
-            {/* <Table data={JSON.stringify(data)}/> */}
-            <Table data={data}/>
-            {/* <div>{JSON.stringify(data)}</div> */}
-            {/* <Table data={data}/> */}
+          <h1>Welcome to Terra!</h1>
+          {data.length === 0 ? (
+            <p>Loading...</p>
+          ) : (
+            // <Table data={Object.entries(data)} />
+            <Table data={data.data} />
+            // <Table data={data}/>
+          )}
         </div>
-    );
+      );
   };
   
   

@@ -23,7 +23,12 @@ const seedDatabase = async () => {
                   aqi: 'aqi2',
                   date: 'date2',
                   location: 'location2'
-                  }     
+                  } ,
+                  {
+                    aqi: 'aqi2',
+                    date: 'date',
+                    location: 'location'
+                    }        
             // Add more cities as needed
             ]);
           console.log('Cities inserted successfully' + response);

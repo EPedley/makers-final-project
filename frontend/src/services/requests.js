@@ -9,8 +9,8 @@ const loadDataFromMongoDB = async () => {
 
 
   };
-  console.log("IM IN THE LOADDATAFROMMONGODB FUNCTION")
-  console.log(`${BACKEND_URL}/cities`)
+  // console.log("IM IN THE LOADDATAFROMMONGODB FUNCTION")
+  // console.log(`${BACKEND_URL}/cities`)
   const response = await fetch(`${BACKEND_URL}/cities`, requestOptions);
 
   if (response.status !== 200) {
@@ -18,6 +18,7 @@ const loadDataFromMongoDB = async () => {
   }
 
   const data = await response.json();
+  // console.log(data)
   return data;
 };
 export default loadDataFromMongoDB;

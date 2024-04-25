@@ -1,19 +1,42 @@
-// import React from "react";
-// import ReactApexChart from "react-apexcharts"
+export const Table = ({ data }) => {
 
-export const Table = ( { data }) => {
+  const startDate = data[0].date
+// End date
+  const endDate = data[data.length - 1].date
 
-    return (
-      <div className="table">
-        {/* {data && data.list && data.list.map((item, index) => (
-                // <div key={index}>{item.co}{item.no}{item.no2}{item.o3}{item.so2}{item.pm2_5}{item.pm10}{item.nh3}</div>
-                <div key={index}>{JSON.stringify(item.component)}</div>
-            ))} */}
-            {data}
-      </div>
-    );
-  };
+  const cities = ["location"]
 
+  console.log('Data received in Table component:', data);
+
+  return (
+    <div className="Table">
+      <table>
+        <thead>
+          <tr>
+            <th>City</th>
+            {/* loop between startDate and endDate */}
+            <th>{startDate}</th>
+            <th>{endDate}</th>
+          </tr>
+        </thead>
+
+        {cities.map((city) => (
+          <tr key={city}>
+            <th>{city}</th>
+            {data.map((item, index) => {
+              if (item.location === city) {
+                return <td key={index}>{item.aqi}</td>;
+              } else {
+                return null;
+              }
+            })}
+          </tr>
+        ))}
+      </table>
+
+    </div>
+  );
+};
   // {item.no}{item.no2}{item.o3}{item.so2}{item.pm2_5}{item.pm10}{item.nh3}
 
     // let generateData = () => {

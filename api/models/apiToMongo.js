@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import apiKey from '../../../apiKey.js';
+import apiKey from '../../apiKey.js';
 
 // import fetch from 'node-fetch'; // Assuming you use node-fetch for making HTTP requests
 
@@ -74,7 +74,7 @@ async function main() {
 
 main()
 
-// export default main 
+export default main 
 
 // insertDataIntoMongo();
 
