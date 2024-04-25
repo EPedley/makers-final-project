@@ -9,7 +9,7 @@ export const Table = ( { data }) => {
                 // <div key={index}>{item.co}{item.no}{item.no2}{item.o3}{item.so2}{item.pm2_5}{item.pm10}{item.nh3}</div>
                 <div key={index}>{JSON.stringify(item.component)}</div>
             ))} */}
-            {JSON.stringify(data)}
+            {data}
       </div>
     );
   };
