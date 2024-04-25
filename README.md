@@ -98,6 +98,7 @@ For an explanation of these environment variables, see the documentation.
 2. Seed the data:
 
 ```
+; delete the cities table Table Plus
 ; cd models
 ; node apiToMongo.js
 ```

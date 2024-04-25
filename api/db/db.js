@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
 const connectToDatabase = async () => {
-  // const mongoDbUrl = process.env.MONGODB_URL;
   const mongoDbUrl = "mongodb://0.0.0.0/Terra"
-  console.log("HELLO")
-  console.log(mongoDbUrl)
   if (!mongoDbUrl) {
     console.error(
       "No MongoDB url provided. Make sure there is a MONGODB_URL environment variable set. See the README for more details."

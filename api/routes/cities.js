@@ -5,5 +5,4 @@ const CitiesController = require("../controllers/cities");
 
 router.get("/", CitiesController.getData);
 
-
 module.exports = router;

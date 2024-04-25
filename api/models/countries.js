@@ -1,6 +1,6 @@
 const countries = [
     {
-    "City": "New York City",
+    "City": "New York",
     "Country": "USA",
     "Lat": 40.7128,
     "Lon": -74.0060
@@ -72,7 +72,7 @@ const countries = [
     // Longitude: 37.6176° E
     ,
     {
-    "City": "Rio de Janeiro",
+    "City": "Rio",
     "Country": "Brazil",
     "Lat": -22.9068,
     "Lon": -43.1729
