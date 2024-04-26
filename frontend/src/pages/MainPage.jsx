@@ -13,6 +13,7 @@ export const MainPage = () => {
     const handleComponentFilterChange = (event) => {
       const inputEl = event.target;
       setComponentFilter(inputEl.value);
+      // console.log(inputEl.value)
     };
 
     const handleCountryFilterChange = (event) => {
@@ -64,7 +65,7 @@ export const MainPage = () => {
             <p>Loading...</p>
           ) : (
             // <Table data={data.data} componentFilter={componentFilter} countryFilter={countryFilter}/>
-            <ChartComponent data={data} />
+            <ChartComponent data={data.data} componentFilter={componentFilter} countryFilter={countryFilter} />
 
           )}
         </div>
