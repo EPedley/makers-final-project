@@ -1,8 +1,8 @@
 import { Table } from "../components/Table";
+import { Map } from "../components/Map";
 import { useState, useEffect } from "react";
 import loadDataFromMongoDB from "../services/requests"
-import cities from "../assets/CityList";
-import components from "../assets/ComponentList";
+import components from "../data/ComponentList";
 
 export const MainPage = () => {
     const [data, setData] = useState([]);
@@ -14,9 +14,8 @@ export const MainPage = () => {
       setComponentFilter(inputEl.value);
     };
 
-    const handleCountryFilterChange = (event) => {
-      const inputEl = event.target;
-      setCountryFilter(inputEl.value);
+    const handleCountryFilterChange = (city) => {
+      setCountryFilter(city);
     };
   
     useEffect(() => {
@@ -34,36 +33,20 @@ export const MainPage = () => {
         <div className="mainPage">
           <h1>Welcome to Terra!</h1>
 
-          {/* <select name="components" id="components" onChange={handleComponentFilterChange}>
-            <option value="aqi">AQI</option>
-            <option value="co">CO</option>
-            <option value="no">NO</option>
-            <option value="no2">NO2</option>
-            <option value="o3">O3</option>
-            <option value="so2">SO2</option>
-            <option value="pm2_5">PM2_5</option>
-            <option value="pm10">PM10</option>
-            <option value="nh3">NH3</option>
-          </select> */}
-
-          <select name="components" id="components" onChange={handleComponentFilterChange}>
+          <select name="componentFilter" id="componentFilter" onChange={handleComponentFilterChange}>
             {components.map((component, index) => (
               <option key={index} value={component.value}>{component.label}</option>
             ))}
           </select>
 
-          <select name="countryFilter" id="countryFilter" onChange={handleCountryFilterChange}>
-            <option value="">Select a city</option>
-            {cities.map((city, index) => (
-              <option key={index} value={city}>{city}</option>
-            ))}
-          </select>
+          <Map handleCountryFilterChange={handleCountryFilterChange} currentCountryFilter={countryFilter} />
 
           {data.length === 0 ? (
             <p>Loading...</p>
           ) : (
             <Table data={data.data} componentFilter={componentFilter} countryFilter={countryFilter}/>
           )}
+
         </div>
       );
   };
