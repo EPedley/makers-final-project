@@ -23,7 +23,6 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
   // }, []);
 
 
-
   useEffect(() => {
 
     // Transform data for chart rendering
