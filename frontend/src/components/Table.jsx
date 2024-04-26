@@ -1,8 +1,20 @@
-export const Table = ({ data }) => {
+export const Table = ({ data, componentFilter, countryFilter }) => {
+
+  // const filter = "aqi"
+  console.log(countryFilter)
 
   const dates = [...new Set(data.map(item => item.date))];
-  const cities = [...new Set(data.map(item => item.location))];
-  console.log('Data received in Table component:', data);
+
+  let cities = []
+
+  if (countryFilter == "") {
+    cities = [...new Set(data.map(item => item.location))];
+    console.log(cities)
+  }
+  else {
+    cities = [countryFilter]
+  }
+  // const cities = [...new Set(data.map(item => item.location))];
 
   const formatDate = (dateString) => {
     const options = {month: 'long', day: 'numeric', year: 'numeric'}
@@ -17,7 +29,7 @@ export const Table = ({ data }) => {
           <tr>
             <th>City</th>
             {dates.map((date) => (
-              <th>{formatDate(date)}</th>
+              <th key={date}>{formatDate(date)}</th>
             ))}
           </tr>
         </thead>
@@ -27,7 +39,7 @@ export const Table = ({ data }) => {
             <th>{city}</th>
             {data.map((item, index) => {
               if (item.location === city) {
-                return <td key={index}>{item.aqi}</td>;
+                return <td key={index}>{item[componentFilter]}</td>;
               } else {
                 return null;
               }
