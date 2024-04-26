@@ -39,7 +39,12 @@ export const MainPage = () => {
             ))}
           </select>
 
-          <Map handleCountryFilterChange={handleCountryFilterChange} currentCountryFilter={countryFilter} data={data.data} />
+          <Map 
+            handleCountryFilterChange={handleCountryFilterChange} 
+            componentFilter={componentFilter} 
+            countryFilter={countryFilter} 
+            data={data.data} 
+          />
 
           {data.length === 0 ? (
             <p>Loading...</p>
