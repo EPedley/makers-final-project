@@ -1,6 +1,5 @@
 import ApexCharts from "apexcharts";
-import { useState, useEffect } from "react";
-import loadDataFromMongoDB from "../services/requests";
+import { useEffect } from "react";
 import cities from "../assets/CityList";
 
 const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
@@ -23,7 +22,7 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
   //     });
   // }, []);
 
-  console.log(componentFilter)
+
 
   useEffect(() => {
 
@@ -38,7 +37,6 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
         }))
     }));
 
-    console.log(chartSeries)
 
     const options = {
       chart: {
