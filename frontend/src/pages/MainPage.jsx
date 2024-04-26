@@ -6,8 +6,6 @@ import cities from "../assets/CityList";
 import ChartComponent from "../components/TableV2"
 import components from "../data/ComponentList";
 
-
-
 export const MainPage = () => {
     const [data, setData] = useState([]);
     const [componentFilter, setComponentFilter] = useState("aqi");
