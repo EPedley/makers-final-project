@@ -3,6 +3,7 @@ import { Map } from "../components/Map";
 import { useState, useEffect } from "react";
 import loadDataFromMongoDB from "../services/requests"
 import components from "../data/ComponentList";
+import { Tooltip } from 'react-tooltip'
 
 export const MainPage = () => {
     const [data, setData] = useState([]);
@@ -28,6 +29,8 @@ export const MainPage = () => {
             setData([])
         });
     }, []);
+
+    const [content, setContent] = useState("");
   
     return (
         <div className="mainPage">
@@ -39,7 +42,8 @@ export const MainPage = () => {
             ))}
           </select>
 
-          <Map handleCountryFilterChange={handleCountryFilterChange} currentCountryFilter={countryFilter} data={data.data} />
+          <Map handleCountryFilterChange={handleCountryFilterChange} currentCountryFilter={countryFilter} data={data.data} setTooltipContent={setContent} data-tooltip-id="my-tooltip"/>
+          <Tooltip id="my-tooltip" content={content}></Tooltip>
 
           {data.length === 0 ? (
             <p>Loading...</p>

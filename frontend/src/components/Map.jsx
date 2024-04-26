@@ -11,6 +11,7 @@ import {
   Sphere,
   Graticule
 } from "react-simple-maps";
+import { Tooltip } from "react-tooltip";
 
 
 
@@ -35,6 +36,8 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
         handleCountryFilterChange(city)
     }
 
+
+    const [tooltipContent, setTooltipContent] = useState("");
     // useEffect(() => {
     //     csv(`./vulnerability.csv`).then((data) => {
     //       setData(data);
@@ -77,9 +80,34 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
             <Geographies geography={mapData}>
             {({ geographies }) =>
                 geographies.map((geo) => {
+                  <Geography
+                  key={geo.rsmKey}
+                  geography={geo}
+                  onMouseEnter={() => {
+                    setTooltipContent(geo.properties.name)
+                    console.log(tooltipContent)
+                  }}
+                  onMouseLeave={() => {
+                    setTooltipContent("")
+                  }}
+                  style={{
+                    default: {
+                      fill: "#D6D6DA",
+                      outline: "none"
+                    },
+                    hover: {
+                      fill: "#F53",
+                      outline: "none"
+                    },
+                    pressed: {
+                      fill: "#E42",
+                      outline: "none"
+                    }
+                  }}
+                  />
                 const country = geo.properties.name
                 let city = cities.find(entry => entry.Country === country)?.City || null;
-                console.log(city)
+                // console.log(city)
                 // const countryData = city ? data.find((item) => item.location === city)?.aqi : 6;
                 const fillColour = "black"
                 // console.log(data)
@@ -92,17 +120,44 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
                 //     countryData = dataEntry ? dataEntry.aqi : null;
                 // }
                 // const fillColour = countryData ? colorScale(countryData) : "#6BB7AC";
-                return (
-                    <Geography 
+                return ( <>
+                <Geography 
                         key={geo.rsmKey} 
                         geography={geo} 
                         onClick={() => handleClick(geo)} 
-                        fill={fillColour}/>
+                        fill={fillColour}
+                        onMouseEnter={() => {
+                          setTooltipContent(geo.properties.name)
+                          console.log(geo.properties.name)
+                        }}
+                        onMouseLeave={() => {
+                          setTooltipContent("")
+                        }}
+                        style={{
+                          default: {
+                            fill: "#D6D6DA",
+                            outline: "none"
+                          },
+                          hover: {
+                            fill: "#F53",
+                            outline: "none"
+                          },
+                          pressed: {
+                            fill: "#E42",
+                            outline: "none"
+                          }
+                        }}
+                        />
+                    <Tooltip id="my-tooltip" content={tooltipContent} />
+                </>
+                    
+                        
                     )
                 })
             }
             </Geographies>
         </ComposableMap>
+        
     )
 }
 
