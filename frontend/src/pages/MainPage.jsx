@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import loadDataFromMongoDB from "../services/requests"
 import cities from "../assets/CityList";
 import components from "../assets/ComponentList";
+import ChartComponent from "../components/TableV2"
 
 export const MainPage = () => {
     const [data, setData] = useState([]);
@@ -62,7 +63,9 @@ export const MainPage = () => {
           {data.length === 0 ? (
             <p>Loading...</p>
           ) : (
-            <Table data={data.data} componentFilter={componentFilter} countryFilter={countryFilter}/>
+            // <Table data={data.data} componentFilter={componentFilter} countryFilter={countryFilter}/>
+            <ChartComponent data={data} />
+
           )}
         </div>
       );
