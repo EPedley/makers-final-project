@@ -1,15 +1,11 @@
 export const Table = ({ data, componentFilter, countryFilter }) => {
 
-  // const filter = "aqi"
-  console.log(countryFilter)
-
   const dates = [...new Set(data.map(item => item.date))];
 
   let cities = []
 
   if (countryFilter == "") {
     cities = [...new Set(data.map(item => item.location))];
-    console.log(cities)
   }
   else {
     cities = [countryFilter]
