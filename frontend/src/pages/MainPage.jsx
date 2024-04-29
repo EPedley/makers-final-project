@@ -5,6 +5,8 @@ import loadDataFromMongoDB from "../services/requests"
 import ChartComponent from "../components/TableV2"
 import components from "../data/ComponentList";
 import { InformationButton } from "../components/InformationButton";
+import "./styles.css"
+import { About } from "../components/About";
 
 export const MainPage = () => {
     const [data, setData] = useState([]);
@@ -37,10 +39,23 @@ export const MainPage = () => {
       const date = new Date(dateString);
       return date.toLocaleDateString('en-US', options)
     }
+
+    const [aboutVisible, setAboutVisible] = useState(false);
+
+    const toggleAbout = () => {
+      setAboutVisible(!aboutVisible);
+    };
   
     return (
         <div className="mainPage">
           <h1>Welcome to Terra!</h1>
+          <button className="aboutButton" onClick={toggleAbout}>ABOUT</button>
+
+          {aboutVisible && (
+            <div className="aboutOverlay">
+              <About/>
+            </div>
+          )}
 
           <select name="componentFilter" id="componentFilter" onChange={handleComponentFilterChange}>
             {components.map((component, index) => (
