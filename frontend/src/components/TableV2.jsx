@@ -1,9 +1,9 @@
 import ApexCharts from "apexcharts";
-import { useState, useEffect } from "react";
-import cities from "../assets/CityList";
-
+import { useEffect } from "react";
+import cities from "../data/CityList";
+import colourMap from "../data/ColourMap";
 const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
-  // const [chartData, setChartData] = useState([]);
+  // const [dataType, setDataType] = useState([]);
 
   // useEffect(() => {
   //   loadDataFromMongoDB()
@@ -34,24 +34,27 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
       chartSeries = [{
         name: countryFilter,
         data: filteredData.map(item => ({
-          x: new Date(item.date).getTime(), // Convert date to milliseconds
-          y: item[componentFilter] // Get the component value based on the selected filter
+          x: item.date, 
+          y: item[componentFilter] 
         }))
       }];
     }
     // Render based on selected component if countryFilter is empty
-    else {
+
       chartSeries = cities.map(city => {
-        const cityData = data.filter(item => item.location === city && item[componentFilter] !== undefined); // Filter data by city and component filter
+        const cityData = data.filter(item => item.location === city.City); 
+        console.log(data)
         return {
-          name: city,
+          name: city.City,
           data: cityData.map(item => ({
-            x: new Date(item.date).getTime(), // Convert date to milliseconds
-            y: item[componentFilter] // Get the component value based on the selected filter
-          }))
+            x: item.date, 
+            y: item[componentFilter] 
+          })),
+          color: colourMap[componentFilter].max
         };
+        
       });
-    }
+    
 
     const options = {
       chart: {
@@ -70,7 +73,7 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
       },
       yaxis: {
         title: {
-          text: "Value" // Change the y-axis title to a generic one
+          text: "AQI" // Change the y-axis title to a generic one
         }
       },
       dataLabels: {
@@ -84,7 +87,7 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
     return () => {
       chart.destroy();
     };
-  }, [data, componentFilter, countryFilter]); // Include data, componentFilter, and countryFilter as dependencies
+  }, [componentFilter]); // Include data, componentFilter, and countryFilter as dependencies
 
   return <div id="chart"></div>;
 };

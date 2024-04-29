@@ -1,8 +1,7 @@
-import { Table } from "../components/Table";
 import { Map } from "../components/Map";
 import { useState, useEffect } from "react";
 import loadDataFromMongoDB from "../services/requests"
-import cities from "../assets/CityList";
+import cities from "../data/CityList";
 import ChartComponent from "../components/TableV2"
 import components from "../data/ComponentList";
 
@@ -31,6 +30,8 @@ export const MainPage = () => {
             setData([])
         });
     }, []);
+
+
   
     return (
         <div className="mainPage">
@@ -41,6 +42,14 @@ export const MainPage = () => {
               <option key={index} value={component.value}>{component.label}</option>
             ))}
           </select>
+
+          {/* <select name="countryFilter" id="countryFilter" onChange={handleCountryFilterChange}>
+            <option value="">Select a city</option>
+            {cities.map((city, index) => (
+              <option key={index} value={city.City}>{city.City}</option>
+            ))}
+          </select> */}
+
 
           <Map 
             handleCountryFilterChange={handleCountryFilterChange} 
