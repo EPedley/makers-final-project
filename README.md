@@ -67,6 +67,7 @@ If you haven't already, make sure you have node and NVM installed.
 
    ```
    npm install @react-map/world
+   npm install d3
    ```
 
 ### Setting up environment variables.
