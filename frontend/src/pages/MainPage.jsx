@@ -1,10 +1,10 @@
-import { Table } from "../components/Table";
 import { Map } from "../components/Map";
 import { useState, useEffect } from "react";
 import loadDataFromMongoDB from "../services/requests"
 import ChartComponent from "../components/TableV2"
 import components from "../data/ComponentList";
 import { InformationButton } from "../components/InformationButton";
+import cities from "../data/CityList";
 
 export const MainPage = () => {
     const [data, setData] = useState([]);
@@ -37,7 +37,7 @@ export const MainPage = () => {
       const date = new Date(dateString);
       return date.toLocaleDateString('en-US', options)
     }
-  
+
     return (
         <div className="mainPage">
           <h1>Welcome to Terra!</h1>
@@ -47,6 +47,14 @@ export const MainPage = () => {
               <option key={index} value={component.value}>{component.label}</option>
             ))}
           </select>
+
+          {/* <select name="countryFilter" id="countryFilter" onChange={handleCountryFilterChange}>
+            <option value="">Select a city</option>
+            {cities.map((city, index) => (
+              <option key={index} value={city.City}>{city.City}</option>
+            ))}
+          </select> */}
+
 
           <Map 
             handleCountryFilterChange={handleCountryFilterChange} 
