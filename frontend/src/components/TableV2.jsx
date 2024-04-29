@@ -1,6 +1,6 @@
 import ApexCharts from "apexcharts";
 import { useEffect } from "react";
-import cities from "../assets/CityList";
+import cities from "../data/CityList";
 
 const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
   // const [chartData, setChartData] = useState([]);

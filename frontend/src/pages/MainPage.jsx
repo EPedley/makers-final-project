@@ -2,7 +2,6 @@ import { Table } from "../components/Table";
 import { Map } from "../components/Map";
 import { useState, useEffect } from "react";
 import loadDataFromMongoDB from "../services/requests"
-import cities from "../assets/CityList";
 import ChartComponent from "../components/TableV2"
 import components from "../data/ComponentList";
 
