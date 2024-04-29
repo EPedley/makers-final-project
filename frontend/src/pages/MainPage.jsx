@@ -1,19 +1,20 @@
 import { Map } from "../components/Map";
 import { useState, useEffect } from "react";
 import loadDataFromMongoDB from "../services/requests"
-import cities from "../data/CityList";
 import ChartComponent from "../components/TableV2"
 import components from "../data/ComponentList";
+import { InformationButton } from "../components/InformationButton";
+import cities from "../data/CityList";
 
 export const MainPage = () => {
     const [data, setData] = useState([]);
     const [componentFilter, setComponentFilter] = useState("aqi");
     const [countryFilter, setCountryFilter] = useState("");
+    const date = new Date(Date.now() - 864e5)
 
     const handleComponentFilterChange = (event) => {
       const inputEl = event.target;
       setComponentFilter(inputEl.value);
-      // console.log(inputEl.value)
     };
 
     const handleCountryFilterChange = (city) => {
@@ -31,8 +32,12 @@ export const MainPage = () => {
         });
     }, []);
 
+    const formatDate = (dateString) => {
+      const options = {month: 'long', day: 'numeric', year: 'numeric'}
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', options)
+    }
 
-  
     return (
         <div className="mainPage">
           <h1>Welcome to Terra!</h1>
@@ -56,7 +61,17 @@ export const MainPage = () => {
             componentFilter={componentFilter} 
             countryFilter={countryFilter} 
             data={data.data} 
+            date={date}
           />
+
+          <div>
+            World mapchart showing 
+            {data && " " + components.find(component => component.value === componentFilter)?.label} 
+            <InformationButton componentFilter={componentFilter}/>
+            <span> </span>
+            {componentFilter != "aqi" && "concentration in μg/m³ "}
+            for {formatDate(date)} from <a href="https://openweathermap.org/">Open Weather</a>
+          </div>
 
           {data.length === 0 ? (
             <p>Loading...</p>
