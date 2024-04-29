@@ -9,6 +9,8 @@ import {
   Sphere,
   Graticule
 } from "react-simple-maps";
+import {Tooltip} from "react-tooltip"
+import { useState } from "react";
 
 
 
@@ -82,17 +84,19 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
                         }}
                         data-tooltip-id="tooltip"
                         data-tooltip-content={tooltipContent}
-                        // style={{
-                        //   default: {
-                        //     fill: "#D6D6DA",
-                        //     outline: "none"
-                        //   },
-                        //   hover: {
-                        //     fill: "#F53",
-                        //     outline: "none"
-                        // }}
-                        />
-                </>
+                        style={{
+                          default: {
+                              outline: 'none'
+                          },
+                          hover: {
+                              outline: 'none',
+                              cursor: 'pointer'
+                          },
+                          pressed: {
+                              outline: 'none'
+                          }
+                        }}/>
+                
                     
                         
                     )
