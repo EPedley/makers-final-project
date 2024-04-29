@@ -9,8 +9,13 @@ import {
   Sphere,
   Graticule
 } from "react-simple-maps";
+import {Tooltip} from "react-tooltip"
+import { useState } from "react";
+
+
 
 export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter, data, date } ) => {
+
 
     let minColour = ""
     let maxColour = ""
@@ -20,20 +25,21 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
     let day = 23
     // let day = date.getDate()
 
-    if (data) {
-        data = data.filter(entry => {
-            const entryDate = new Date(entry.date);
-            return entryDate.getDate() === day;
-        });
-        minColour = colourMap[componentFilter].min
-        maxColour = colourMap[componentFilter].max
-        minValue = Math.min(...data.map(item => item[componentFilter]))
-        maxValue = Math.max(...data.map(item => item[componentFilter]))
-    }
+  if (data) {
+      data = data.filter(entry => {
+          const entryDate = new Date(entry.date);
+          return entryDate.getDate() === day;
+      });
+      minColour = colourMap[componentFilter].min
+      maxColour = colourMap[componentFilter].max
+      minValue = Math.min(...data.map(item => item[componentFilter]))
+      maxValue = Math.max(...data.map(item => item[componentFilter]))
+  }
 
     const colorScale = scaleLinear()
     .domain([minValue, maxValue])
     .range([minColour, maxColour]);
+
 
     const handleClick = (geo) => {
         const country = geo.properties.name
@@ -44,8 +50,11 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
         handleCountryFilterChange(city)
     }
 
-    return (
-        <ComposableMap width={2000}>
+
+    const [tooltipContent, setTooltipContent] = useState("");
+
+    return (<>
+    <ComposableMap width={2000}>
             <Sphere fill="white" stroke="#E4E5E6" strokeWidth={0.5} />
             <Graticule stroke="#E3E2E4" strokeWidth={0.5}/>
             <Geographies geography={mapData}>
@@ -68,23 +77,39 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
                         geography={geo} 
                         onClick={() => handleClick(geo)} 
                         fill={fillColour}
+                        onMouseEnter={() => {
+                          setTooltipContent(country)
+                          console.log(geo.properties.name)
+                        }}
+                        onMouseLeave={() => {
+                          setTooltipContent("")
+                        }}
+                        data-tooltip-id="tooltip"
+                        data-tooltip-content={tooltipContent}
                         style={{
-                            default: {
-                                outline: 'none'
-                            },
-                            hover: {
-                                outline: 'none',
-                                cursor: 'pointer'
-                            },
-                            pressed: {
-                                outline: 'none'
-                            }
+                          default: {
+                              outline: 'none'
+                          },
+                          hover: {
+                              outline: 'none',
+                              cursor: 'pointer'
+                          },
+                          pressed: {
+                              outline: 'none'
+                          }
                         }}/>
+                
+                    
+                        
                     )
                 })
             }
             </Geographies>
         </ComposableMap>
+        <Tooltip id="tooltip" />
+    </>
+        
+        
     )
 }
 

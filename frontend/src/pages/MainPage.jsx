@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import loadDataFromMongoDB from "../services/requests"
 import ChartComponent from "../components/TableV2"
 import components from "../data/ComponentList";
+import { Tooltip } from 'react-tooltip'
 import { InformationButton } from "../components/InformationButton";
 import cities from "../data/CityList";
+
 
 export const MainPage = () => {
     const [data, setData] = useState([]);
@@ -31,6 +33,9 @@ export const MainPage = () => {
             setData([])
         });
     }, []);
+
+// check use? maybe kill
+    const [content, setContent] = useState("");
 
     const formatDate = (dateString) => {
       const options = {month: 'long', day: 'numeric', year: 'numeric'}
@@ -60,9 +65,11 @@ export const MainPage = () => {
             handleCountryFilterChange={handleCountryFilterChange} 
             componentFilter={componentFilter} 
             countryFilter={countryFilter} 
-            data={data.data} 
+// check setTooltip stuff
+            data={data.data} setTooltipContent={setContent} data-tooltip-id="my-tooltip"
             date={date}
           />
+          <Tooltip id="my-tooltip" content={content}></Tooltip>
 
           <div>
             World mapchart showing 
