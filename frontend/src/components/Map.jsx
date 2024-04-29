@@ -1,5 +1,4 @@
 import cities from "../data/CityList";
-// import "./styles.css"
 import mapData from "../data/mapData.json";
 import { scaleLinear } from "d3-scale";
 import {

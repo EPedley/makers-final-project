@@ -1,9 +1,0 @@
-.componentFilter geography:focus {
-    outline: none;
-}
-
-.react-simple-maps path:focus {
-    outline: none !important;
-    /* Additional styles if needed */
-    stroke: none !important; /* Remove any stroke */
-  }
