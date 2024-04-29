@@ -1,5 +1,5 @@
 import ApexCharts from "apexcharts";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import cities from "../assets/CityList";
 
 const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
@@ -25,25 +25,41 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
 
   useEffect(() => {
 
-    // Transform data for chart rendering
-    const chartSeries = cities.map(city => ({
-      name: city,
-      data: data
-        .filter(item => item.location === city) // Filter data by city
-        .map(item => ({
-          x: item.date, // Date as x-axis
-          y: item[componentFilter] // AQI as y-axis
-        }))
-    }));
 
+    let chartSeries = [];
+
+    // Render based on selected country if countryFilter is not empty
+    if (countryFilter !== "") {
+      const filteredData = data.filter(item => item.location === countryFilter);
+      chartSeries = [{
+        name: countryFilter,
+        data: filteredData.map(item => ({
+          x: new Date(item.date).getTime(), // Convert date to milliseconds
+          y: item[componentFilter] // Get the component value based on the selected filter
+        }))
+      }];
+    }
+    // Render based on selected component if countryFilter is empty
+    else {
+      chartSeries = cities.map(city => {
+        const cityData = data.filter(item => item.location === city && item[componentFilter] !== undefined); // Filter data by city and component filter
+        return {
+          name: city,
+          data: cityData.map(item => ({
+            x: new Date(item.date).getTime(), // Convert date to milliseconds
+            y: item[componentFilter] // Get the component value based on the selected filter
+          }))
+        };
+      });
+    }
 
     const options = {
       chart: {
-        type: "heatmap"
+        type: "heatmap" // Set the chart type based on the state
       },
       series: chartSeries,
       xaxis: {
-        type: "datetime", // Set x-axis type to datetime
+        type: "datetime",
         labels: {
           datetimeFormatter: {
             year: "yyyy",
@@ -54,8 +70,11 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
       },
       yaxis: {
         title: {
-          text: "AQI"
+          text: "Value" // Change the y-axis title to a generic one
         }
+      },
+      dataLabels: {
+        enabled: false // Disable data labels
       }
     };
 
@@ -65,7 +84,7 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
     return () => {
       chart.destroy();
     };
-  }, [componentFilter]);
+  }, [data, componentFilter, countryFilter]); // Include data, componentFilter, and countryFilter as dependencies
 
   return <div id="chart"></div>;
 };
