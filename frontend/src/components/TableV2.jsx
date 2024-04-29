@@ -2,6 +2,7 @@ import ApexCharts from "apexcharts";
 import { useEffect } from "react";
 import cities from "../data/CityList";
 import colourMap from "../data/ColourMap";
+
 const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
   // const [dataType, setDataType] = useState([]);
 

@@ -14,14 +14,16 @@ import { useState } from "react";
 
 
 
-export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter, data } ) => {
+export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter, data, date } ) => {
 
-  let minColour = ""
-  let maxColour = ""
-  let minValue = 0
-  let maxValue = 0
-  // UPDATE TO BE DYNAMIC
-  let day = 23
+
+    let minColour = ""
+    let maxColour = ""
+    let minValue = 0
+    let maxValue = 0
+    // UPDATE ONCE NEW DATA DOWNLOADED
+    let day = 23
+    // let day = date.getDate()
 
   if (data) {
       data = data.filter(entry => {

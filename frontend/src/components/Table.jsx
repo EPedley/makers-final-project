@@ -10,8 +10,8 @@ export const Table = ({ data, componentFilter, countryFilter }) => {
   else {
     cities = [countryFilter]
   }
-  // const cities = [...new Set(data.map(item => item.location))];
 
+  // BORROW FROM MAIN PAGE?
   const formatDate = (dateString) => {
     const options = {month: 'long', day: 'numeric', year: 'numeric'}
     const date = new Date(dateString);
