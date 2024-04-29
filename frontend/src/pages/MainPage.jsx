@@ -2,7 +2,11 @@ import { Table } from "../components/Table";
 import { Map } from "../components/Map";
 import { useState, useEffect } from "react";
 import loadDataFromMongoDB from "../services/requests"
+import cities from "../assets/CityList";
+import ChartComponent from "../components/TableV2"
 import components from "../data/ComponentList";
+
+
 
 export const MainPage = () => {
     const [data, setData] = useState([]);
@@ -12,6 +16,7 @@ export const MainPage = () => {
     const handleComponentFilterChange = (event) => {
       const inputEl = event.target;
       setComponentFilter(inputEl.value);
+      // console.log(inputEl.value)
     };
 
     const handleCountryFilterChange = (city) => {
@@ -49,7 +54,9 @@ export const MainPage = () => {
           {data.length === 0 ? (
             <p>Loading...</p>
           ) : (
-            <Table data={data.data} componentFilter={componentFilter} countryFilter={countryFilter}/>
+            // <Table data={data.data} componentFilter={componentFilter} countryFilter={countryFilter}/>
+            <ChartComponent data={data.data} componentFilter={componentFilter} countryFilter={countryFilter} />
+
           )}
 
         </div>

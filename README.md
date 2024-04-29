@@ -46,6 +46,7 @@ If you haven't already, make sure you have node and NVM installed.
    ```
    cd frontend
    npm install
+   npm install apexcharts --save
    cd ../api
    npm install
    ```
