@@ -60,7 +60,7 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
 
     const options = {
       chart: {
-        type: "heatmap",
+        type: "area",
         toolbar: {
           show :false
         } // Set the chart type based on the state,

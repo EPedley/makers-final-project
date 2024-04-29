@@ -54,7 +54,7 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
     const [tooltipContent, setTooltipContent] = useState("");
 
     return (<>
-    <ComposableMap width={2000}>
+    <ComposableMap width={1500}>
             <Sphere fill="white" stroke="#E4E5E6" strokeWidth={0.5} />
             <Graticule stroke="#E3E2E4" strokeWidth={0.5}/>
             <Geographies geography={mapData}>
