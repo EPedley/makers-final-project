@@ -2,6 +2,7 @@ import ApexCharts from "apexcharts";
 import { useEffect } from "react";
 import cities from "../data/CityList";
 import colourMap from "../data/ColourMap";
+import components from "../data/ComponentList";
 
 const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
   // const [dataType, setDataType] = useState([]);
@@ -37,14 +38,14 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
         data: filteredData.map(item => ({
           x: item.date, 
           y: item[componentFilter] 
-        }))
+        })),
+        color: colourMap[componentFilter].max
       }];
     }
     // Render based on selected component if countryFilter is empty
 
-      chartSeries = cities.map(city => {
+     else if (countryFilter === "") {chartSeries = cities.map(city => {
         const cityData = data.filter(item => item.location === city.City); 
-        console.log(data)
         return {
           name: city.City,
           data: cityData.map(item => ({
@@ -54,12 +55,16 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
           color: colourMap[componentFilter].max
         };
         
-      });
+      })}
     
 
     const options = {
       chart: {
-        type: "heatmap" // Set the chart type based on the state
+        type: "heatmap",
+        toolbar: {
+          show :false
+        } // Set the chart type based on the state,
+
       },
       series: chartSeries,
       xaxis: {
@@ -74,7 +79,7 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
       },
       yaxis: {
         title: {
-          text: "AQI" // Change the y-axis title to a generic one
+          text: components.find(component => component.value === componentFilter)?.label // Change the y-axis title to a generic one
         }
       },
       dataLabels: {
@@ -88,7 +93,7 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
     return () => {
       chart.destroy();
     };
-  }, [componentFilter]); // Include data, componentFilter, and countryFilter as dependencies
+  }, [componentFilter, countryFilter]); // Include data, componentFilter, and countryFilter as dependencies
 
   return <div id="chart"></div>;
 };
