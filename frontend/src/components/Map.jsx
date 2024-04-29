@@ -21,12 +21,6 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
     .domain([1, 6])
     .range(["#ffedea", "#6BB7AC"]);
 
-    // const values = data.map(item => item[componentFilter])
-    // console.log(values)
-
-    // const minimum = Math.min(data.map(item => item[componentFilter]))
-    // console.log(minimum)
-
     const handleClick = (geo) => {
         const country = geo.properties.name
         let city = cities.find(entry => entry.Country === country).City
@@ -38,40 +32,6 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
 
 
     const [tooltipContent, setTooltipContent] = useState("");
-    // useEffect(() => {
-    //     csv(`./vulnerability.csv`).then((data) => {
-    //       setData(data);
-    //     });
-    //   }, []);
-    
-    //   return (
-    //     <ComposableMap
-    //       projectionConfig={{
-    //         rotate: [-10, 0, 0],
-    //         scale: 147
-    //       }}
-    //     >
-    //       <Sphere stroke="#E4E5E6" strokeWidth={0.5} />
-    //       <Graticule stroke="#E4E5E6" strokeWidth={0.5} />
-    //       {data.length > 0 && (
-    //         <Geographies geography={mapData} >
-    //           {({ geographies }) =>
-    //             geographies.map((geo) => {
-    //             //   const d = data.find((s) => s.ISO3 === geo.id);
-    //               return (
-    //                 <Geography
-    //                   key={geo.rsmKey}
-    //                   geography={geo}
-    //                   fill={"#F5F4F6"}
-    //                   onClick={() => handleClick(geo)}
-    //                 />
-    //               );
-    //             })
-    //           }
-    //         </Geographies>
-    //       )}
-    //     </ComposableMap>
-    //   )
 
     return (<>
     <ComposableMap width={2000}>
@@ -81,7 +41,7 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
             {({ geographies }) =>
                 geographies.map((geo) => {
                 const country = geo.properties.name
-                let city = cities.find(entry => entry.Country === country)?.City || null;
+                let city = cities.find(entry => entry.Country === country)?.Country || null;
                 const fillColour = "black"
                 return ( <>
                 <Geography
@@ -90,7 +50,7 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
                         onClick={() => handleClick(geo)} 
                         fill={fillColour}
                         onMouseEnter={() => {
-                          setTooltipContent(geo.properties.name)
+                          setTooltipContent(country)
                           console.log(geo.properties.name)
                         }}
                         onMouseLeave={() => {
