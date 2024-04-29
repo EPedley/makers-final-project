@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { MainPage } from "./pages/MainPage";
+import 'react-tooltip/dist/react-tooltip.css'
 
 // docs: https://reactrouter.com/en/main/start/overview
 const router = createBrowserRouter([

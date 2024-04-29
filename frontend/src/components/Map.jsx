@@ -82,21 +82,8 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
                 geographies.map((geo) => {
                 const country = geo.properties.name
                 let city = cities.find(entry => entry.Country === country)?.City || null;
-                // console.log(city)
-                // const countryData = city ? data.find((item) => item.location === city)?.aqi : 6;
                 const fillColour = "black"
-                // console.log(data)
-                // let cityEntry = cities.find(entry => entry.Country === country);
-                // let city = cityEntry ? cityEntry.City : null;
-                // console.log(city)
-                // let countryData = null;
-                // if (city) {
-                //     let dataEntry = data.find(item => item.location === city);
-                //     countryData = dataEntry ? dataEntry.aqi : null;
-                // }
-                // const fillColour = countryData ? colorScale(countryData) : "#6BB7AC";
                 return ( <>
-                <h1>Try me</h1>
                 <Geography
                         key={geo.rsmKey} 
                         geography={geo} 
@@ -109,22 +96,18 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
                         onMouseLeave={() => {
                           setTooltipContent("")
                         }}
-                        style={{
-                          default: {
-                            fill: "#D6D6DA",
-                            outline: "none"
-                          },
-                          hover: {
-                            fill: "#F53",
-                            outline: "none"
-                          },
-                          pressed: {
-                            fill: "#E42",
-                            outline: "none"
-                          }
-                        }}
+                        data-tooltip-id="tooltip"
+                        data-tooltip-content={tooltipContent}
+                        // style={{
+                        //   default: {
+                        //     fill: "#D6D6DA",
+                        //     outline: "none"
+                        //   },
+                        //   hover: {
+                        //     fill: "#F53",
+                        //     outline: "none"
+                        // }}
                         />
-                    <Tooltip id="my-tooltip" content={tooltipContent} />
                 </>
                     
                         
@@ -133,6 +116,7 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
             }
             </Geographies>
         </ComposableMap>
+        <Tooltip id="tooltip" />
     </>
         
         
