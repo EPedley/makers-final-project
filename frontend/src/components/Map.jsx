@@ -73,38 +73,13 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
     //     </ComposableMap>
     //   )
 
-    return (
-        <ComposableMap width={2000}>
+    return (<>
+    <ComposableMap width={2000}>
             <Sphere fill="white" stroke="#E4E5E6" strokeWidth={0.5} />
             <Graticule stroke="#F5F4F6" strokeWidth={0.5}/>
             <Geographies geography={mapData}>
             {({ geographies }) =>
                 geographies.map((geo) => {
-                  <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  onMouseEnter={() => {
-                    setTooltipContent(geo.properties.name)
-                    console.log(tooltipContent)
-                  }}
-                  onMouseLeave={() => {
-                    setTooltipContent("")
-                  }}
-                  style={{
-                    default: {
-                      fill: "#D6D6DA",
-                      outline: "none"
-                    },
-                    hover: {
-                      fill: "#F53",
-                      outline: "none"
-                    },
-                    pressed: {
-                      fill: "#E42",
-                      outline: "none"
-                    }
-                  }}
-                  />
                 const country = geo.properties.name
                 let city = cities.find(entry => entry.Country === country)?.City || null;
                 // console.log(city)
@@ -121,7 +96,8 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
                 // }
                 // const fillColour = countryData ? colorScale(countryData) : "#6BB7AC";
                 return ( <>
-                <Geography 
+                <h1>Try me</h1>
+                <Geography
                         key={geo.rsmKey} 
                         geography={geo} 
                         onClick={() => handleClick(geo)} 
@@ -157,6 +133,8 @@ export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } )
             }
             </Geographies>
         </ComposableMap>
+    </>
+        
         
     )
 }
