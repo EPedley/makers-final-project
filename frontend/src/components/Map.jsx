@@ -12,13 +12,30 @@ import {
 
 
 
-export const Map = ( { handleCountryFilterChange, currentCountryFilter, data } ) => {
+export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter, data } ) => {
+
+  let minColour = ""
+  let maxColour = ""
+  let minValue = 0
+  let maxValue = 0
+  // UPDATE TO BE DYNAMIC
+  let day = 23
+
+  if (data) {
+      data = data.filter(entry => {
+          const entryDate = new Date(entry.date);
+          return entryDate.getDate() === day;
+      });
+      minColour = colourMap[componentFilter].min
+      maxColour = colourMap[componentFilter].max
+      minValue = Math.min(...data.map(item => item[componentFilter]))
+      maxValue = Math.max(...data.map(item => item[componentFilter]))
+  }
 
     const colorScale = scaleLinear()
     .domain([minValue, maxValue])
     .range([minColour, maxColour]);
-    .domain([1, 6])
-    .range(["#ffedea", "#6BB7AC"]);
+
 
     const handleClick = (geo) => {
         const country = geo.properties.name
