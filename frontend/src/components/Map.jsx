@@ -7,15 +7,15 @@ import {
   Geographies,
   Geography,
   Sphere,
-  Graticule
+  Graticule,
+  Marker
 } from "react-simple-maps";
 import {Tooltip} from "react-tooltip"
 import { useState } from "react";
-
+import markers from "../data/CapitalCitiesList";
 
 
 export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter, data, date } ) => {
-
 
     let minColour = ""
     let maxColour = ""
@@ -105,6 +105,21 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
                 })
             }
             </Geographies>
+            
+            {/* {markers.map(({ name, coordinates, markerOffset }) => ( 
+                <Marker key={name} coordinates={coordinates}>
+                <circle r={2} fill="white" stroke="grey" strokeWidth={1} />
+                {/* <text
+                    textAnchor="middle"
+                    y={markerOffset}
+                    style={{ fontFamily: "system-ui", fill: "#5D5A6D", fontSize: 10 }}
+                >
+                    {name}
+                </text> 
+                </Marker>
+            ))}*/}
+
+
         </ComposableMap>
         <Tooltip id="tooltip" />
     </>

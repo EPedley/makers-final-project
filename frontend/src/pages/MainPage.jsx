@@ -46,6 +46,7 @@ export const MainPage = () => {
     return (
         <div className="mainPage">
           <h1>Welcome to Terra!</h1>
+          <button>ABOUT</button>
 
           <select name="componentFilter" id="componentFilter" onChange={handleComponentFilterChange}>
             {components.map((component, index) => (
