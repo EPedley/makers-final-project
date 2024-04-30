@@ -3,17 +3,20 @@ import { useState, useEffect } from "react";
 import loadDataFromMongoDB from "../services/requests"
 import ChartComponent from "../components/TableV2"
 import components from "../data/ComponentList";
-import { Tooltip } from 'react-tooltip'
 import { InformationButton } from "../components/InformationButton";
-// import cities from "../data/CityList";
 import terraFullLogo from "../logos/terraFullLogo.png";
 const logo = terraFullLogo
+import "./styles.css"
+import { About } from "../components/About";
+import cities from "../data/CityList";
+
 
 export const MainPage = () => {
     const [data, setData] = useState([]);
     const [componentFilter, setComponentFilter] = useState("aqi");
     const [countryFilter, setCountryFilter] = useState("");
     const date = new Date(Date.now() - 864e5)
+    const [aboutVisible, setAboutVisible] = useState(false);
 
     const handleComponentFilterChange = (event) => {
       const inputEl = event.target;
@@ -35,8 +38,6 @@ export const MainPage = () => {
         });
     }, []);
 
-// check use? maybe kill
-    const [content, setContent] = useState("");
 
     const formatDate = (dateString) => {
       const options = {month: 'long', day: 'numeric', year: 'numeric'}
@@ -44,9 +45,22 @@ export const MainPage = () => {
       return date.toLocaleDateString('en-US', options)
     }
 
+    const toggleAbout = () => {
+      setAboutVisible(!aboutVisible);
+    };
+  
+
     return (
         <div className="mainPage">
+
           <img src={terraFullLogo} alt="Terra Logo" width={600} />
+          <button className="aboutButton" onClick={toggleAbout}>ABOUT</button>
+          {aboutVisible && (
+            <div className="aboutOverlay">
+              <About/>
+            </div>
+          )}
+
 
           <select name="componentFilter" id="componentFilter" onChange={handleComponentFilterChange}>
             {components.map((component, index) => (
@@ -66,11 +80,9 @@ export const MainPage = () => {
             handleCountryFilterChange={handleCountryFilterChange} 
             componentFilter={componentFilter} 
             countryFilter={countryFilter} 
-// check setTooltip stuff
-            data={data.data} setTooltipContent={setContent} data-tooltip-id="my-tooltip"
+            data={data.data}
             date={date}
           />
-          <Tooltip id="my-tooltip" content={content}></Tooltip>
 
           <div>
             World mapchart showing 

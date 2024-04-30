@@ -11,7 +11,7 @@ import {
 } from "react-simple-maps";
 import {Tooltip} from "react-tooltip"
 import { useState } from "react";
-
+import components from "../data/ComponentList";
 
 
 export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter, data, date } ) => {
@@ -50,7 +50,6 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
         handleCountryFilterChange(city)
     }
 
-
     const [tooltipContent, setTooltipContent] = useState("");
 
     return (<>
@@ -78,8 +77,13 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
                         onClick={() => handleClick(geo)} 
                         fill={fillColour}
                         onMouseEnter={() => {
-                          setTooltipContent(country)
-                          // console.log(geo.properties.name)
+
+                          let locationData = data.find( item => item.location === city)
+                          if (locationData) {
+                            let componentValue = locationData[componentFilter]
+                            setTooltipContent(`${components.find(component => component.value === componentFilter)?.label}: ${componentValue}`)
+                          }
+
                         }}
                         onMouseLeave={() => {
                           setTooltipContent("")
@@ -98,9 +102,6 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
                               outline: 'none'
                           }
                         }}/>
-                
-                    
-                        
                     )
                 })
             }
@@ -108,8 +109,6 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
         </ComposableMap>
         <Tooltip id="tooltip" />
     </>
-        
-        
     )
 }
 
