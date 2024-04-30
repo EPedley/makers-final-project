@@ -6,8 +6,8 @@ import components from "../data/ComponentList";
 
 const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
   const [chartType, setChartType] = useState('heatmap');
-  console.log("componentFilter:", componentFilter);
-  console.log("countryFilter:", countryFilter);
+  const [chartHeight, setchartHeight] = useState('300px');
+
 
   useEffect(() => {
 
@@ -15,9 +15,6 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
 
     if (countryFilter !== "") {
       setChartType('heatmap')
-      console.log('countryFilter !== ""')
-      console.log(chartType)
-      console.log(countryFilter)
       const filteredData = data.filter(item => item.location === countryFilter);
       chartSeries = [{
         name: countryFilter,
@@ -28,13 +25,11 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
         color: colourMap[componentFilter].max
       }];
       setChartType('area')
+      setchartHeight('300px')
     }
 
     else if (componentFilter !== "") {
       setChartType('area')
-      console.log('countryFilter === ""')
-      console.log(chartType)
-      console.log(countryFilter)
       chartSeries = cities.map(city => {
         const cityData = data.filter(item => item.location === city.City); 
         return {
@@ -48,6 +43,8 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
         
       })
       setChartType('heatmap')
+      setchartHeight('15000px')
+
     }
 
     else {
@@ -57,6 +54,8 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
 
     const options = {
       chart: {
+        height: chartHeight,
+        offsetX: 10,
         type: chartType,
         toolbar: {
           show :false
