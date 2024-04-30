@@ -1,11 +1,13 @@
-const { MongoClient } = require('mongodb');
-const apiKey = require('../../apiKey');
-const cities = require("./citiesList");
-const mongoose = require('mongoose');
-const City = require("../models/city")
+// setup
 const { connectToDatabase } = require("../db/db");
-const { sub } = require('date-fns');
 require("dotenv").config();
+const mongoose = require('mongoose');
+
+// api
+const apiKey = require('../../apiKey');
+const cities = require("./capitalCitiesList");
+const City = require("../models/city")
+
 
 // 01 Apr 2024 12pm
 const startDate= 1711972800
