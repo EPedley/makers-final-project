@@ -1,6 +1,6 @@
 import ApexCharts from "apexcharts";
 import { useState, useEffect } from "react";
-import cities from "../data/CityList";
+import cities from "../data/TableCityList";
 import colourMap from "../data/ColourMap";
 import components from "../data/ComponentList";
 
@@ -43,7 +43,7 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
         
       })
       setChartType('heatmap')
-      setchartHeight('15000px')
+      setchartHeight('4000px')
 
     }
 

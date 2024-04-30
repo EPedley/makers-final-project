@@ -482,7 +482,7 @@ const capitalCities = [
 //     },
 //     {
 //         "City": "Jerusalem",
-//         "Country": "Israel",
+//         "Country": "Palestine",
 //         "Lat": 31.7683,
 //         "Lon": 35.2137
 //     },
