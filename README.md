@@ -70,6 +70,11 @@ If you haven't already, make sure you have node and NVM installed.
    npm install @react-map/world
    npm install d3
    ```
+5. Install React Tooltip
+
+   ```
+   npm install react-tooltip
+   ```
 
 ### Setting up environment variables.
 
