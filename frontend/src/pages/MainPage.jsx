@@ -5,14 +5,16 @@ import ChartComponent from "../components/TableV2"
 import components from "../data/ComponentList";
 import { Tooltip } from 'react-tooltip'
 import { InformationButton } from "../components/InformationButton";
+import "./styles.css"
+import { About } from "../components/About";
 import cities from "../data/CityList";
-
 
 export const MainPage = () => {
     const [data, setData] = useState([]);
     const [componentFilter, setComponentFilter] = useState("aqi");
     const [countryFilter, setCountryFilter] = useState("");
     const date = new Date(Date.now() - 864e5)
+    const [aboutVisible, setAboutVisible] = useState(false);
 
     const handleComponentFilterChange = (event) => {
       const inputEl = event.target;
@@ -43,9 +45,21 @@ export const MainPage = () => {
       return date.toLocaleDateString('en-US', options)
     }
 
+    const toggleAbout = () => {
+      setAboutVisible(!aboutVisible);
+    };
+  
+
     return (
         <div className="mainPage">
           <h1>Welcome to Terra!</h1>
+          <button className="aboutButton" onClick={toggleAbout}>ABOUT</button>
+
+          {aboutVisible && (
+            <div className="aboutOverlay">
+              <About/>
+            </div>
+          )}
 
           <select name="componentFilter" id="componentFilter" onChange={handleComponentFilterChange}>
             {components.map((component, index) => (
