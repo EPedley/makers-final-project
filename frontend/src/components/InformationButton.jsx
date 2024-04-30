@@ -1,5 +1,6 @@
-import components from "../data/ComponentList";
 import { useState } from 'react';
+import components from "../data/ComponentList";
+
 
 export const InformationButton = ({ componentFilter }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -26,23 +27,26 @@ export const InformationButton = ({ componentFilter }) => {
       onMouseLeave={handleMouseLeave}
       style={{ border: 'none', background: 'none', cursor: 'pointer' }}
     >
-      <sup>ⓘ</sup>
+      <sup style={{color: '#E27396'}}>ⓘ</sup>
       {isHovered && (
         <div
           style={{
             position: 'fixed',
             top: tooltipPosition.y,
             left: tooltipPosition.x,
-            backgroundColor: 'lightgray',
-            padding: '5px',
+            backgroundColor: '#e5e5e5',
+            color: 'black',
+            padding: '20px',
             borderRadius: '5px',
             boxShadow: '0px 0px 5px 1px rgba(0,0,0,0.3)',
           }}
         >
-            <strong>{information.name}</strong>
-            {information.description.split('\n').map((line, index) => (
-                <p key={index}>{line}</p>
-            ))}
+
+          <strong>{information.name}</strong>
+
+          {information.description.split('\n').map((line, index) => (
+            <p key={index}>{line}</p>
+          ))}
         </div>
       )}
     </button>
