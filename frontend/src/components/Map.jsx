@@ -79,7 +79,7 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
                         fill={fillColour}
                         onMouseEnter={() => {
                           setTooltipContent(country)
-                          console.log(geo.properties.name)
+                          // console.log(geo.properties.name)
                         }}
                         onMouseLeave={() => {
                           setTooltipContent("")

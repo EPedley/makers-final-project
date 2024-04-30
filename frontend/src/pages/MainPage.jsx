@@ -5,8 +5,9 @@ import ChartComponent from "../components/TableV2"
 import components from "../data/ComponentList";
 import { Tooltip } from 'react-tooltip'
 import { InformationButton } from "../components/InformationButton";
-import cities from "../data/CityList";
-
+// import cities from "../data/CityList";
+import terraFullLogo from "../logos/terraFullLogo.png";
+const logo = terraFullLogo
 
 export const MainPage = () => {
     const [data, setData] = useState([]);
@@ -45,7 +46,7 @@ export const MainPage = () => {
 
     return (
         <div className="mainPage">
-          <h1>Welcome to Terra!</h1>
+          <img src={terraFullLogo} alt="Terra Logo" width={600} />
 
           <select name="componentFilter" id="componentFilter" onChange={handleComponentFilterChange}>
             {components.map((component, index) => (
