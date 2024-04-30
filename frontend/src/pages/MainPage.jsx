@@ -4,9 +4,12 @@ import loadDataFromMongoDB from "../services/requests"
 import ChartComponent from "../components/TableV2"
 import components from "../data/ComponentList";
 import { InformationButton } from "../components/InformationButton";
+import terraFullLogo from "../logos/terraFullLogo.png";
+const logo = terraFullLogo
 import "./styles.css"
 import { About } from "../components/About";
 import cities from "../data/CityList";
+
 
 export const MainPage = () => {
     const [data, setData] = useState([]);
@@ -49,14 +52,15 @@ export const MainPage = () => {
 
     return (
         <div className="mainPage">
-          <h1>Welcome to Terra!</h1>
-          <button className="aboutButton" onClick={toggleAbout}>ABOUT</button>
 
+          <img src={terraFullLogo} alt="Terra Logo" width={600} />
+          <button className="aboutButton" onClick={toggleAbout}>ABOUT</button>
           {aboutVisible && (
             <div className="aboutOverlay">
               <About/>
             </div>
           )}
+
 
           <select name="componentFilter" id="componentFilter" onChange={handleComponentFilterChange}>
             {components.map((component, index) => (

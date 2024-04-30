@@ -77,6 +77,7 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
                         onClick={() => handleClick(geo)} 
                         fill={fillColour}
                         onMouseEnter={() => {
+
                           let locationData = data.find( item => item.location === city)
                           if (locationData) {
                             console.log(locationData)
@@ -84,6 +85,7 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
                             let component = components.find(component => component.value === componentFilter)?.label
                             setTooltipContent(`${city}, ${country} <br />${component}: ${componentValue}`)
                           }
+
                         }}
                         onMouseLeave={() => {
                           setTooltipContent("")
