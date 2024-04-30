@@ -1,14 +1,20 @@
-import { Map } from "../components/Map";
 import { useState, useEffect } from "react";
+
+// functions
 import loadDataFromMongoDB from "../services/requests"
-import ChartComponent from "../components/TableV2"
-import components from "../data/ComponentList";
-import { InformationButton } from "../components/InformationButton";
+
+// assets
 import terraFullLogo from "../logos/terraFullLogo.png";
-const logo = terraFullLogo
-import "./styles.css"
+import "./MainPage.css"
+
+// components
 import { About } from "../components/About";
-import cities from "../data/CityList";
+import { Map } from "../components/Map";
+import { InformationButton } from "../components/InformationButton";
+import ChartComponent from "../components/TableV2"
+
+// data
+import components from "../data/ComponentList";
 
 
 export const MainPage = () => {
@@ -38,7 +44,6 @@ export const MainPage = () => {
         });
     }, []);
 
-
     const formatDate = (dateString) => {
       const options = {month: 'long', day: 'numeric', year: 'numeric'}
       const date = new Date(dateString);
@@ -50,59 +55,55 @@ export const MainPage = () => {
     };
   
 
-    return (
-        <div className="mainPage">
+  return (
+    <div className="mainPage">
 
-          <img src={terraFullLogo} alt="Terra Logo" width={600} />
-          <button className="aboutButton" onClick={toggleAbout}>ABOUT</button>
-          {aboutVisible && (
-            <div className="aboutOverlay">
-              <About/>
-            </div>
-          )}
+      <div className="logo">
+        <img src={terraFullLogo} alt="Terra Logo" />
+      </div>
+          
+      <button className="aboutButton" onClick={toggleAbout}></button>
 
-
-          <select name="componentFilter" id="componentFilter" onChange={handleComponentFilterChange}>
-            {components.map((component, index) => (
-              <option key={index} value={component.value}>{component.label}</option>
-            ))}
-          </select>
-
-          {/* <select name="countryFilter" id="countryFilter" onChange={handleCountryFilterChange}>
-            <option value="">Select a city</option>
-            {cities.map((city, index) => (
-              <option key={index} value={city.City}>{city.City}</option>
-            ))}
-          </select> */}
-
-
-          <Map 
-            handleCountryFilterChange={handleCountryFilterChange} 
-            componentFilter={componentFilter} 
-            countryFilter={countryFilter} 
-            data={data.data}
-            date={date}
-          />
-
-          <div>
-            World mapchart showing 
-            {data && " " + components.find(component => component.value === componentFilter)?.label} 
-            <InformationButton componentFilter={componentFilter}/>
-            <span> </span>
-            {componentFilter != "aqi" && "concentration in μg/m³ "}
-            for {formatDate(date)} from <a href="https://openweathermap.org/">Open Weather</a>
-          </div>
-
-          {data.length === 0 ? (
-            <p>Loading...</p>
-          ) : (
-            // <Table data={data.data} componentFilter={componentFilter} countryFilter={countryFilter}/>
-            <ChartComponent data={data.data} componentFilter={componentFilter} countryFilter={countryFilter} />
-
-          )}
-
+      {aboutVisible && (
+        <div className="aboutOverlay">
+          <About/>
         </div>
-      );
-  };
+      )}
+
+      <div className="select">
+        <select name="componentFilter" id="componentFilter" onChange={handleComponentFilterChange}>
+          {components.map((component, index) => (
+            <option key={index} value={component.value}>{component.label}</option>
+          ))}
+        </select>
+        <div className="select_arrow"></div>
+      </div>
+
+      <Map 
+        handleCountryFilterChange={handleCountryFilterChange} 
+        componentFilter={componentFilter} 
+        countryFilter={countryFilter} 
+        data={data.data}
+        date={date}
+      />
+
+      <div className = "mapLabel">
+        World mapchart showing 
+        {data && " " + components.find(component => component.value === componentFilter)?.label} 
+        <InformationButton componentFilter={componentFilter}/>
+        <span> </span>
+        {componentFilter != "aqi" && "concentration in μg/m³ "}
+        for {formatDate(date)} from <a href="https://openweathermap.org/">Open Weather</a>
+      </div>
+
+      {data.length === 0 ? (
+        <p>Loading...</p>
+      ) : (
+      <ChartComponent data={data.data} componentFilter={componentFilter} countryFilter={countryFilter} />
+      )}
+
+      </div>
+    );
+};
 
     
