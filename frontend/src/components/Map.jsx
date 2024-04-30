@@ -79,15 +79,17 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
                         onMouseEnter={() => {
                           let locationData = data.find( item => item.location === city)
                           if (locationData) {
+                            console.log(locationData)
                             let componentValue = locationData[componentFilter]
-                            setTooltipContent(`${components.find(component => component.value === componentFilter)?.label}: ${componentValue}`)
+                            let component = components.find(component => component.value === componentFilter)?.label
+                            setTooltipContent(`${city}, ${country} <br />${component}: ${componentValue}`)
                           }
                         }}
                         onMouseLeave={() => {
                           setTooltipContent("")
                         }}
-                        data-tooltip-id="tooltip"
-                        data-tooltip-content={tooltipContent}
+                        data-tooltip-id="my-tooltip-multiline"
+                        data-tooltip-html={tooltipContent}
                         style={{
                           default: {
                               outline: 'none'
@@ -105,7 +107,7 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
             }
             </Geographies>
         </ComposableMap>
-        <Tooltip id="tooltip" />
+        <Tooltip id="my-tooltip-multiline" />
     </>
     )
 }
