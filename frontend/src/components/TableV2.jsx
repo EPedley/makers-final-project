@@ -6,7 +6,7 @@ import components from "../data/ComponentList";
 
 const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
   const [chartType, setChartType] = useState('heatmap');
-  const [chartHeight, setchartHeight] = useState('300px');
+  const [chartHeight, setchartHeight] = useState('3000px');
 
 
   useEffect(() => {
@@ -29,33 +29,52 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
     }
 
     else if (componentFilter !== "") {
-      setChartType('area')
-      chartSeries = cities.map(city => {
-        const cityData = data.filter(item => item.location === city.City); 
-        return {
-          name: city.City,
-          data: cityData.map(item => ({
-            x: item.date, 
-            y: item[componentFilter] 
-          })),
-          color: colourMap[componentFilter].max
-        };
-        
-      })
-      setChartType('heatmap')
-      setchartHeight('4000px')
-
+      setChartType('heatmap');
+    
+      // Create a set of all dates from the data
+      const allDates = new Set(data.map(item => item.date));
+      
+      // Convert the set of dates to an array and sort them chronologically
+      const sortedDates = Array.from(allDates).sort((a, b) => new Date(a) - new Date(b));
+      
+      // Create a complete dataset with zero values for missing dates
+      const completeData = [];
+      sortedDates.forEach(date => {
+        cities.forEach(city => {
+          const cityData = data.find(item => item.location === city.City && item.date === date);
+          if (cityData) {
+            completeData.push({
+              x: date,
+              y: cityData[componentFilter],
+              name: city.City
+            });
+          } else {
+            completeData.push({
+              x: date,
+              y: 0,
+              name: city.City
+            });
+          }
+        });
+      });
+    
+      // Group the complete dataset by city for the heatmap
+      chartSeries = cities.map(city => ({
+        name: city.City,
+        data: completeData.filter(item => item.name === city.City),
+        color: colourMap[componentFilter].max
+      }));
+      setchartHeight('3000px')
     }
+    
 
     else {
       setChartType('area')
     }
 
-
     const options = {
       chart: {
         height: chartHeight,
-        offsetX: 10,
         type: chartType,
         toolbar: {
           show :false
@@ -80,7 +99,7 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
       },
       dataLabels: {
         enabled: false 
-      }
+      },
     };
 
     const chart = new ApexCharts(document.querySelector("#chart"), options);
