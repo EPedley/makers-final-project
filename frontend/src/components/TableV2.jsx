@@ -8,6 +8,18 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
   const [chartType, setChartType] = useState('heatmap');
   const [chartHeight, setchartHeight] = useState('300px');
 
+  // list of dates
+  // list of countries
+
+  const minDate = new Date(Math.min(...data.map(item => new Date(item.date))));
+  const maxDate = new Date(Math.max(...data.map(item => new Date(item.date))));
+
+  // for (const item in minDate) {
+  //   console.log(typeof item);
+  // }
+  console.log(minDate)
+  console.log(maxDate)
+
 
   useEffect(() => {
 
@@ -27,6 +39,7 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
       setChartType('area')
       setchartHeight('300px')
     }
+
 
     else if (componentFilter !== "") {
       setChartType('area')
