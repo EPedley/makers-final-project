@@ -1,30 +1,28 @@
 import createFetchMock from "vitest-fetch-mock";
 import { describe, expect, vi } from "vitest";
-
-import { getPosts } from "../../src/services/posts";
+import loadDataFromMongoDB from "../../src/services/requests";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 // Mock fetch function
 createFetchMock(vi).enableMocks();
 
-describe("posts service", () => {
-  describe("getPosts", () => {
-    test("includes a token with its request", async () => {
-      fetch.mockResponseOnce(JSON.stringify({ posts: [], token: "newToken" }), {
+describe("cities service", () => {
+  describe("loadDataFromMongoDB", () => {
+    test("runs if the status is 200", async () => {
+      fetch.mockResponseOnce(JSON.stringify({ cities: [] }), {
         status: 200,
       });
 
-      await getPosts("testToken");
+      await loadDataFromMongoDB();
 
       // This is an array of the arguments that were last passed to fetch
       const fetchArguments = fetch.mock.lastCall;
       const url = fetchArguments[0];
       const options = fetchArguments[1];
 
-      expect(url).toEqual(`${BACKEND_URL}/posts`);
+      expect(url).toEqual(`${BACKEND_URL}/cities`);
       expect(options.method).toEqual("GET");
-      expect(options.headers["Authorization"]).toEqual("Bearer testToken");
     });
 
     test("rejects with an error if the status is not 200", async () => {
@@ -34,7 +32,7 @@ describe("posts service", () => {
       );
 
       try {
-        await getPosts("testToken");
+        await loadDataFromMongoDB();
       } catch (err) {
         expect(err.message).toEqual("Unable to fetch posts");
       }

@@ -2,7 +2,7 @@ export const About = () => {
 
     return (
         <div className="aboutContent">
-            <p className = "title" style={{ fontSize: '30px'  }}>ABOUT US</p>
+            <p className = "title" data-testid="title" style={{ fontSize: '30px'  }}>ABOUT US</p>
             <p>Welcome to  Terra! We're a dedicated group of developers and enthusiasts passionate about leveraging technology to explore and visualise interesting statistics from around the world.</p>
             <p className = "title">WHAT IS TERRA?</p>
             <p>Terra is a collaborative effort by our team to create an innovative web application that visualises a wide range of statistics. Our goal is to provide users with a platform to explore and analyse diverse datasets, fostering curiosity and informed decision-making.</p>

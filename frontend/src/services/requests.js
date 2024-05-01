@@ -10,6 +10,8 @@ const loadDataFromMongoDB = async () => {
   
   const response = await fetch(`${BACKEND_URL}/cities`, requestOptions);
 
+  console.log(response)
+
   if (response.status !== 200) {
     throw new Error("Unable to fetch posts");
   }
