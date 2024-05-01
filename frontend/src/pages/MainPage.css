@@ -85,7 +85,7 @@ img {
     font-family: 'Arial';
     text-align: center;
     cursor: pointer;
-    padding: 10px 20px; /* Added padding on the right side to accommodate the arrow */
+    padding: 15px ; /* Added padding on the right side to accommodate the arrow */
     outline: 0;
     border: 0;
     border-radius: 100px;
@@ -94,13 +94,14 @@ img {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    /* width: 10%; */
+    width: 10%;
+    height: 10%;
     text-align-last: center;
 }
 
 /* Style the dropdown arrow */
 .select_arrow {
-    content: "\25BC"; /* Unicode character for down arrow */
+    content: "\25BC"; /* Unicode `character for down arrow */
     top: calc(50% - 6px); /* Adjust position of arrow vertically */
     font-size: 12px; /* Adjust size of arrow */
     pointer-events: none;

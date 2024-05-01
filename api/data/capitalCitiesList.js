@@ -30,12 +30,6 @@ const capitalCities = [
         "Lon": 13.2894
     },
     {
-        "City": "Saint John's",
-        "Country": "Antigua and Barbuda",
-        "Lat": 17.1274,
-        "Lon": -61.8468
-    },
-    {
         "City": "Buenos Aires",
         "Country": "Argentina",
         "Lat": -34.6037,
@@ -59,7 +53,6 @@ const capitalCities = [
         "Lat": 48.2082,
         "Lon": 16.3738
     },
-
     {
         "City": "Baku",
         "Country": "Azerbaijan",
@@ -120,7 +113,6 @@ const capitalCities = [
         "Lat": 27.4728,
         "Lon": 89.639
     },
-
     {
         "City": "Sucre",
         "Country": "Bolivia",
@@ -181,18 +173,11 @@ const capitalCities = [
         "Lat": 3.848,
         "Lon": 11.5021
     },
-
     {
         "City": "Ottawa",
         "Country": "Canada",
         "Lat": 45.4215,
         "Lon": -75.6919
-    },
-    {
-        "City": "Praia",
-        "Country": "Cape Verde",
-        "Lat": 14.9225,
-        "Lon": -23.5156
     },
     {
         "City": "Bangui",
@@ -225,12 +210,6 @@ const capitalCities = [
         "Lon": -74.0721
     },
     {
-        "City": "Moroni",
-        "Country": "Comoros",
-        "Lat": -11.7172,
-        "Lon": 43.2472
-    },
-    {
         "City": "Brazzaville",
         "Country": "Congo",
         "Lat": -4.2634,
@@ -248,7 +227,6 @@ const capitalCities = [
         "Lat": 9.9281,
         "Lon": -84.0907
     },
-
     {
         "City": "Yamoussoukro",
         "Country": "Côte d'Ivoire",
@@ -309,7 +287,6 @@ const capitalCities = [
         "Lat": -8.5586,
         "Lon": 125.5781
     },
-
     {
         "City": "Quito",
         "Country": "Ecuador",
@@ -359,12 +336,6 @@ const capitalCities = [
         "Lon": 38.7613
     },
     {
-        "City": "Palikir",
-        "Country": "Micronesia",
-        "Lat": 6.9248,
-        "Lon": 158.1610
-    },
-    {
         "City": "Suva",
         "Country": "Fiji",
         "Lat": -18.1248,
@@ -376,7 +347,6 @@ const capitalCities = [
         "Lat": 60.1695,
         "Lon": 24.9354
     },
-
     {
         "City": "Paris",
         "Country": "France",
@@ -418,12 +388,6 @@ const capitalCities = [
         "Country": "Greece",
         "Lat": 37.9838,
         "Lon": 23.7275
-    },
-    {
-        "City": "Saint George's",
-        "Country": "Grenada",
-        "Lat": 12.0560,
-        "Lon": -61.7480
     },
     {
         "City": "Guatemala City",
@@ -507,7 +471,7 @@ const capitalCities = [
     },
     {
         "City": "Jerusalem",
-        "Country": "Israel",
+        "Country": "Palestine",
         "Lat": 31.7683,
         "Lon": 35.2137
     },
@@ -547,12 +511,7 @@ const capitalCities = [
         "Lat": -1.2864,
         "Lon": 36.8172
     },
-    {
-        "City": "South Tarawa",
-        "Country": "Kiribati",
-        "Lat": 1.3270,
-        "Lon": 172.9762
-    },
+
     {
         "City": "Pristina",
         "Country": "Kosovo",
@@ -669,12 +628,7 @@ const capitalCities = [
         "Lat": 35.8989,
         "Lon": 14.5146
     },
-    {
-        "City": "Majuro",
-        "Country": "Marshall Islands",
-        "Lat": 7.1164,
-        "Lon": 171.1858
-    },
+
     {
         "City": "Nouakchott",
         "Country": "Mauritania",
@@ -693,12 +647,6 @@ const capitalCities = [
         "Country": "Mexico",
         "Lat": 19.4326,
         "Lon": -99.1332
-    },
-    {
-        "City": "Palikir",
-        "Country": "Micronesia",
-        "Lat": 6.9166,
-        "Lon": 158.1622
     },
     {
         "City": "Chisinau",
@@ -742,7 +690,6 @@ const capitalCities = [
         "Lat": 19.7633,
         "Lon": 96.0785
     },
-
     {
         "City": "Windhoek",
         "Country": "Namibia",
@@ -803,532 +750,431 @@ const capitalCities = [
         "Lat": 59.9139,
         "Lon": 10.7522
     },
-
     {
-      "City": "Muscat",
-      "Country": "Oman",
-      "Lat": 23.6105,
-      "Lon": 58.5922
-  }
-  // Latitude: 23.6105° N
-  // Longitude: 58.5922° E
-  ,
-  {
-      "City": "Islamabad",
-      "Country": "Pakistan",
-      "Lat": 33.6844,
-      "Lon": 73.0479
-  }
-  // Latitude: 33.6844° N
-  // Longitude: 73.0479° E
-  ,
-  {
-      "City": "Ngerulmud",
-      "Country": "Palau",
-      "Lat": 7.5005,
-      "Lon": 134.6248
-  }
-  // Latitude: 7.5005° N
-  // Longitude: 134.6248° E
-  ,
-  {
-      "City": "Panama City",
-      "Country": "Panama",
-      "Lat": 8.9824,
-      "Lon": -79.5199
-  }
-  // Latitude: 8.9824° N
-  // Longitude: 79.5199° W
-  ,
-  {
-      "City": "Port Moresby",
-      "Country": "Papua New Guinea",
-      "Lat": -9.478,
-      "Lon": 147.149
-  }
-  // Latitude: 9.478° S
-  // Longitude: 147.149° E
-  ,
-  {
-      "City": "Asunción",
-      "Country": "Paraguay",
-      "Lat": -25.2637,
-      "Lon": -57.5759
-  }
-  // Latitude: 25.2637° S
-  // Longitude: 57.5759° W
-  ,
-  {
-      "City": "Lima",
-      "Country": "Peru",
-      "Lat": -12.0464,
-      "Lon": -77.0428
-  }
-  // Latitude: 12.0464° S
-  // Longitude: 77.0428° W
-  ,
-  {
-      "City": "Manila",
-      "Country": "Philippines",
-      "Lat": 14.5995,
-      "Lon": 120.9842
-  }
-  // Latitude: 14.5995° N
-  // Longitude: 120.9842° E
-  ,
-  {
-      "City": "Warsaw",
-      "Country": "Poland",
-      "Lat": 52.2297,
-      "Lon": 21.0122
-  }
-  // Latitude: 52.2297° N
-  // Longitude: 21.0122° E
-  ,
-  {
-      "City": "Lisbon",
-      "Country": "Portugal",
-      "Lat": 38.7223,
-      "Lon": -9.1393
-  },
-  // Latitude: 38.7223° N
-  // Longitude: 9.1393° W
-
-  {
-      "City": "Doha",
-      "Country": "Qatar",
-      "Lat": 25.2769,
-      "Lon": 51.5201
-  }
-  // Latitude: 25.2769° N
-  // Longitude: 51.5201° E
-  ,
-  {
-      "City": "Bucharest",
-      "Country": "Romania",
-      "Lat": 44.4268,
-      "Lon": 26.1025
-  }
-  // Latitude: 44.4268° N
-  // Longitude: 26.1025° E
-  ,
-  {
-      "City": "Moscow",
-      "Country": "Russia",
-      "Lat": 55.7558,
-      "Lon": 37.6176
-  }
-  // Latitude: 55.7558° N
-  // Longitude: 37.6176° E
-  ,
-  {
-      "City": "Kigali",
-      "Country": "Rwanda",
-      "Lat": -1.9441,
-      "Lon": 30.0619
-  }
-  // Latitude: 1.9441° S
-  // Longitude: 30.0619° E
-  ,
-  {
-      "City": "Basseterre",
-      "Country": "Saint Kitts and Nevis",
-      "Lat": 17.3026,
-      "Lon": -62.7177
-  }
-  // Latitude: 17.3026° N
-  // Longitude: 62.7177° W
-  ,
-  {
-      "City": "Castries",
-      "Country": "Saint Lucia",
-      "Lat": 14.0101,
-      "Lon": -60.987
-  }
-  // Latitude: 14.0101° N
-  // Longitude: 60.987° W
-  ,
-  {
-      "City": "Kingstown",
-      "Country": "Saint Vincent and the Grenadines",
-      "Lat": 13.1561,
-      "Lon": -61.2356
-  }
-  // Latitude: 13.1561° N
-  // Longitude: 61.2356° W
-  ,
-  {
-      "City": "Apia",
-      "Country": "Samoa",
-      "Lat": -13.848,
-      "Lon": -171.74
-  }
-  // Latitude: 13.848° S
-  // Longitude: 171.74° W
-  ,
-  {
-      "City": "San Marino",
-      "Country": "San Marino",
-      "Lat": 43.9424,
-      "Lon": 12.4578
-  }
-  // Latitude: 43.9424° N
-  // Longitude: 12.4578° E
-  ,
-  {
-      "City": "São Tomé",
-      "Country": "São Tomé and Príncipe",
-      "Lat": 0.336,
-      "Lon": 6.7308
-  },
-  // Latitude: 0.336° N
-  // Longitude: 6.7308° E
-
-  {
-      "City": "Riyadh",
-      "Country": "Saudi Arabia",
-      "Lat": 24.7136,
-      "Lon": 46.6753
-  },
-  // Latitude: 24.7136° N
-  // Longitude: 46.6753° E
-  {
-      "City": "Dakar",
-      "Country": "Senegal",
-      "Lat": 14.6928,
-      "Lon": -17.4467
-  }
-  // Latitude: 14.6928° N
-  // Longitude: 17.4467° W
-  ,
-  {
-      "City": "Belgrade",
-      "Country": "Serbia",
-      "Lat": 44.7866,
-      "Lon": 20.4489
-  }
-  // Latitude: 44.7866° N
-  // Longitude: 20.4489° E
-  ,
-  {
-      "City": "Victoria",
-      "Country": "Seychelles",
-      "Lat": -4.6191,
-      "Lon": 55.4513
-  }
-  // Latitude: 4.6191° S
-  // Longitude: 55.4513° E
-  ,
-  {
-      "City": "Freetown",
-      "Country": "Sierra Leone",
-      "Lat": 8.484,
-      "Lon": -13.2284
-  }
-  // Latitude: 8.484° N
-  // Longitude: 13.2284° W
-  ,
-  {
-      "City": "Singapore",
-      "Country": "Singapore",
-      "Lat": 1.3521,
-      "Lon": 103.8198
-  }
-  // Latitude: 1.3521° N
-  // Longitude: 103.8198° E
-  ,
-  {
-      "City": "Bratislava",
-      "Country": "Slovakia",
-      "Lat": 48.1486,
-      "Lon": 17.1077
-  }
-  // Latitude: 48.1486° N
-  // Longitude: 17.1077° E
-  ,
-  {
-      "City": "Ljubljana",
-      "Country": "Slovenia",
-      "Lat": 46.0569,
-      "Lon": 14.5058
-  }
-  // Latitude: 46.0569° N
-  // Longitude: 14.5058° E
-  ,
-  {
-      "City": "Honiara",
-      "Country": "Solomon Islands",
-      "Lat": -9.433,
-      "Lon": 159.956
-  }
-  // Latitude: 9.433° S
-  // Longitude: 159.956° E
-  ,
-  {
-      "City": "Mogadishu",
-      "Country": "Somalia",
-      "Lat": 2.0469,
-      "Lon": 45.3182
-  },
-  // Latitude: 2.0469° N
-  // Longitude: 45.3182° E
-
-  {
-    "City": "Pretoria",
-    "Country": "South Africa",
-    "Lat": -25.7469,
-    "Lon": 28.1879
-}
-// Latitude: 25.7469° S
-// Longitude: 28.1879° E
-,
-{
-    "City": "Bloemfontein",
-    "Country": "South Africa",
-    "Lat": -29.0852,
-    "Lon": 26.1596
-}
-// Latitude: 29.0852° S
-// Longitude: 26.1596° E
-,
-{
-    "City": "Cape Town",
-    "Country": "South Africa",
-    "Lat": -33.9249,
-    "Lon": 18.4241
-}
-// Latitude: 33.9249° S
-// Longitude: 18.4241° E
-,
-{
-    "City": "Seoul",
-    "Country": "South Korea",
-    "Lat": 37.5665,
-    "Lon": 126.978
-}
-// Latitude: 37.5665° N
-// Longitude: 126.978° E
-,
-{
-    "City": "Juba",
-    "Country": "South Sudan",
-    "Lat": 4.8594,
-    "Lon": 31.5712
-}
-// Latitude: 4.8594° N
-// Longitude: 31.5712° E
-,
-{
-    "City": "Madrid",
-    "Country": "Spain",
-    "Lat": 40.4168,
-    "Lon": -3.7038
-}
-// Latitude: 40.4168° N
-// Longitude: 3.7038° W
-,
-{
-    "City": "Sri Jayawardenepura Kotte",
-    "Country": "Sri Lanka",
-    "Lat": 6.9271,
-    "Lon": 79.8612
-}
-// Latitude: 6.9271° N
-// Longitude: 79.8612° E
-,
-{
-    "City": "Khartoum",
-    "Country": "Sudan",
-    "Lat": 15.5007,
-    "Lon": 32.5599
-}
-// Latitude: 15.5007° N
-// Longitude: 32.5599° E
-,
-{
-    "City": "Paramaribo",
-    "Country": "Suriname",
-    "Lat": 5.852,
-    "Lon": -55.2038
-}
-// Latitude: 5.852° N
-// Longitude: 55.2038° W
-,
-{
-    "City": "Stockholm",
-    "Country": "Sweden",
-    "Lat": 59.3293,
-    "Lon": 18.0686
-}
-// Latitude: 59.3293° N
-// Longitude: 18.0686° E
-,
-{
-    "City": "Bern",
-    "Country": "Switzerland",
-    "Lat": 46.948,
-    "Lon": 7.4474
-},
-// Latitude: 46.948° N
-// Longitude: 7.4474° E
-
-{
-  "City": "Damascus",
-  "Country": "Syria",
-  "Lat": 33.5138,
-  "Lon": 36.2765
-},
-{
-  "City": "Taipei",
-  "Country": "Taiwan",
-  "Lat": 25.0330,
-  "Lon": 121.5654
-},
-{
-  "City": "Dushanbe",
-  "Country": "Tajikistan",
-  "Lat": 38.5737,
-  "Lon": 68.7738
-},
-{
-  "City": "Dodoma",
-  "Country": "Tanzania",
-  "Lat": -6.1630,
-  "Lon": 35.7516
-},
-{
-  "City": "Bangkok",
-  "Country": "Thailand",
-  "Lat": 13.7563,
-  "Lon": 100.5018
-},
-{
-  "City": "Lomé",
-  "Country": "Togo",
-  "Lat": 6.1750,
-  "Lon": 1.2314
-},
-{
-  "City": "Nukuʻalofa",
-  "Country": "Tonga",
-  "Lat": -21.1393,
-  "Lon": -175.2049
-},
-{
-  "City": "Port of Spain",
-  "Country": "Trinidad and Tobago",
-  "Lat": 10.6606,
-  "Lon": -61.5136
-},
-{
-  "City": "Tunis",
-  "Country": "Tunisia",
-  "Lat": 36.8065,
-  "Lon": 10.1815
-},
-{
-  "City": "Ankara",
-  "Country": "Turkey",
-  "Lat": 39.9334,
-  "Lon": 32.8597
-},
-
+        "City": "Muscat",
+        "Country": "Oman",
+        "Lat": 23.6105,
+        "Lon": 58.5922
+    },
     {
-      "City": "Ashgabat",
-      "Country": "Turkmenistan",
-      "Lat": 37.9601,
-      "Lon": 58.3261
-  },
-  {
-      "City": "Funafuti",
-      "Country": "Tuvalu",
-      "Lat": -8.5167,
-      "Lon": 179.2167
-  },
-  {
-      "City": "Kampala",
-      "Country": "Uganda",
-      "Lat": 0.3476,
-      "Lon": 32.5825
-  },
-  {
-      "City": "Kiev",
-      "Country": "Ukraine",
-      "Lat": 50.4501,
-      "Lon": 30.5234
-  },
-  {
-      "City": "Abu Dhabi",
-      "Country": "United Arab Emirates",
-      "Lat": 24.4539,
-      "Lon": 54.3773
-  },
-  {
-      "City": "London",
-      "Country": "United Kingdom",
-      "Lat": 51.5074,
-      "Lon": -0.1278
-  },
-  {
-      "City": "Washington, D.C.",
-      "Country": "USA",
-      "Lat": 38.8951,
-      "Lon": -77.0364
-  },
-  {
-      "City": "Montevideo",
-      "Country": "Uruguay",
-      "Lat": -34.9011,
-      "Lon": -56.1645
-  },
-  {
-      "City": "Tashkent",
-      "Country": "Uzbekistan",
-      "Lat": 41.2995,
-      "Lon": 69.2401
-  },
-  {
-      "City": "Port Vila",
-      "Country": "Vanuatu",
-      "Lat": -17.7404,
-      "Lon": 168.3219
-  },
-  {
-      "City": "Vatican City",
-      "Country": "Vatican City",
-      "Lat": 41.9029,
-      "Lon": 12.4534
-  }
+        "City": "Islamabad",
+        "Country": "Pakistan",
+        "Lat": 33.6844,
+        "Lon": 73.0479
+    },
+    {
+        "City": "Ngerulmud",
+        "Country": "Palau",
+        "Lat": 7.5005,
+        "Lon": 134.6248
+    },
+    {
+        "City": "Panama City",
+        "Country": "Panama",
+        "Lat": 8.9824,
+        "Lon": -79.5199
+    },
+    {
+        "City": "Port Moresby",
+        "Country": "Papua New Guinea",
+        "Lat": -9.478,
+        "Lon": 147.149
+    },
+    {
+        "City": "Asunción",
+        "Country": "Paraguay",
+        "Lat": -25.2637,
+        "Lon": -57.5759
+    },
+    {
+        "City": "Lima",
+        "Country": "Peru",
+        "Lat": -12.0464,
+        "Lon": -77.0428
+    },
+    {
+        "City": "Manila",
+        "Country": "Philippines",
+        "Lat": 14.5995,
+        "Lon": 120.9842
+    },
+    {
+        "City": "Warsaw",
+        "Country": "Poland",
+        "Lat": 52.2297,
+        "Lon": 21.0122
+    },
+    {
+        "City": "Lisbon",
+        "Country": "Portugal",
+        "Lat": 38.7223,
+        "Lon": -9.1393
+    },
+    {
+        "City": "Doha",
+        "Country": "Qatar",
+        "Lat": 25.2769,
+        "Lon": 51.5201
+    },
+    {
+        "City": "Bucharest",
+        "Country": "Romania",
+        "Lat": 44.4268,
+        "Lon": 26.1025
+    },
+    {
+        "City": "Moscow",
+        "Country": "Russia",
+        "Lat": 55.7558,
+        "Lon": 37.6176
+    },
+    {
+        "City": "Kigali",
+        "Country": "Rwanda",
+        "Lat": -1.9441,
+        "Lon": 30.0619
+    },
+    {
+        "City": "Riyadh",
+        "Country": "Saudi Arabia",
+        "Lat": 24.7136,
+        "Lon": 46.6753
+    },
+    {
+        "City": "Dakar",
+        "Country": "Senegal",
+        "Lat": 14.6928,
+        "Lon": -17.4467
+    },
+    { 
+        "City": "Belgrade",
+        "Country": "Serbia",
+        "Lat": 44.7866,
+        "Lon": 20.4489
+    },
+    {
+        "City": "Freetown",
+        "Country": "Sierra Leone",
+        "Lat": 8.484,
+        "Lon": -13.2284
+    },
+    {
+        "City": "Singapore",
+        "Country": "Singapore",
+        "Lat": 1.3521,
+        "Lon": 103.8198
+    },
+    {
+        "City": "Bratislava",
+        "Country": "Slovakia",
+        "Lat": 48.1486,
+        "Lon": 17.1077
+    },
+    {
+        "City": "Ljubljana",
+        "Country": "Slovenia",
+        "Lat": 46.0569,
+        "Lon": 14.5058
+    },
+    {
+        "City": "Mogadishu",
+        "Country": "Somalia",
+        "Lat": 2.0469,
+        "Lon": 45.3182
+    },
+    {
+        "City": "Pretoria",
+        "Country": "South Africa",
+        "Lat": -25.7469,
+        "Lon": 28.1879
+    },
+    {
+        "City": "Bloemfontein",
+        "Country": "South Africa",
+        "Lat": -29.0852,
+        "Lon": 26.1596
+    },
+    {
+        "City": "Cape Town",
+        "Country": "South Africa",
+        "Lat": -33.9249,
+        "Lon": 18.4241
+    },
+    {
+        "City": "Seoul",
+        "Country": "South Korea",
+        "Lat": 37.5665,
+        "Lon": 126.978
+    },
+    {
+        "City": "Juba",
+        "Country": "South Sudan",
+        "Lat": 4.8594,
+        "Lon": 31.5712
+    },
+    {
+        "City": "Madrid",
+        "Country": "Spain",
+        "Lat": 40.4168,
+        "Lon": -3.7038
+    },
+    {
+        "City": "Kotte",
+        "Country": "Sri Lanka",
+        "Lat": 6.9271,
+        "Lon": 79.8612
+    },
+    {
+        "City": "Khartoum",
+        "Country": "Sudan",
+        "Lat": 15.5007,
+        "Lon": 32.5599
+    },
+    {
+        "City": "Paramaribo",
+        "Country": "Suriname",
+        "Lat": 5.852,
+        "Lon": -55.2038
+    },
+    {
+        "City": "Stockholm",
+        "Country": "Sweden",
+        "Lat": 59.3293,
+        "Lon": 18.0686
+    },
+    {
+        "City": "Bern",
+        "Country": "Switzerland",
+        "Lat": 46.948,
+        "Lon": 7.4474
+    },
+    {
+        "City": "Damascus",
+        "Country": "Syria",
+        "Lat": 33.5138,
+        "Lon": 36.2765
+    },
+    {
+        "City": "Taipei",
+        "Country": "Taiwan",
+        "Lat": 25.0330,
+        "Lon": 121.5654
+    },
+    {
+        "City": "Dushanbe",
+        "Country": "Tajikistan",
+        "Lat": 38.5737,
+        "Lon": 68.7738
+    },
+    {
+        "City": "Dodoma",
+        "Country": "Tanzania",
+        "Lat": -6.1630,
+        "Lon": 35.7516
+    },
+    {
+        "City": "Bangkok",
+        "Country": "Thailand",
+        "Lat": 13.7563,
+        "Lon": 100.5018
+    },
+    {
+        "City": "Lomé",
+        "Country": "Togo",
+        "Lat": 6.1750,
+        "Lon": 1.2314
+    },
+    {
+        "City": "Tunis",
+        "Country": "Tunisia",
+        "Lat": 36.8065,
+        "Lon": 10.1815
+    },
+    {
+        "City": "Ankara",
+        "Country": "Turkey",
+        "Lat": 39.9334,
+        "Lon": 32.8597
+    },
+    {
+        "City": "Ashgabat",
+        "Country": "Turkmenistan",
+        "Lat": 37.9601,
+        "Lon": 58.3261
+    },
+    {
+        "City": "Kampala",
+        "Country": "Uganda",
+        "Lat": 0.3476,
+        "Lon": 32.5825
+    },
+    {
+        "City": "Kiev",
+        "Country": "Ukraine",
+        "Lat": 50.4501,
+        "Lon": 30.5234
+    },
+    {
+        "City": "Abu Dhabi",
+        "Country": "United Arab Emirates",
+        "Lat": 24.4539,
+        "Lon": 54.3773
+    },
+    {
+        "City": "London",
+        "Country": "United Kingdom",
+        "Lat": 51.5074,
+        "Lon": -0.1278
+    },
+    {
+        "City": "Washington, D.C.",
+        "Country": "United States",
+        "Lat": 38.8951,
+        "Lon": -77.0364
+    },
+    {
+        "City": "Montevideo",
+        "Country": "Uruguay",
+        "Lat": -34.9011,
+        "Lon": -56.1645
+    },
+    {
+        "City": "Tashkent",
+        "Country": "Uzbekistan",
+        "Lat": 41.2995,
+        "Lon": 69.2401
+    },
+    {
+        "City": "Vatican City",
+        "Country": "Vatican City",
+        "Lat": 41.9029,
+        "Lon": 12.4534
+    },
+    {
+        "City": "Caracas",
+        "Country": "Venezuela",
+        "Lat": 10.4806,
+        "Lon": -66.9036
+    },
+    {
+        "City": "Hanoi",
+        "Country": "Vietnam",
+        "Lat": 21.0285,
+        "Lon": 105.8542
+    },
+    {
+        "City": "Sana'a",
+        "Country": "Yemen",
+        "Lat": 15.3694,
+        "Lon": 44.1910
+    },
+    {
+        "City": "Lusaka",
+        "Country": "Zambia",
+        "Lat": -15.4167,
+        "Lon": 28.2833
+    },
+    {
+        "City": "Harare",
+        "Country": "Zimbabwe",
+        "Lat": -17.8252,
+        "Lon": 31.0335
+    },
+    {
+        "City": "Prague",
+        "Country": "Czechia",
+        "Lat": 50.0755,
+        "Lon": 14.4378
+    },
+    {
+        "City": "Nuuk",
+        "Country": "Greenland",
+        "Lat": 64.1836,
+        "Lon": -51.7214
+    },
+    {
+        "City": "Washington",
+        "Country": "USA",
+        "Lat": 38.9072,
+        "Lon": -77.0369
+    },
+    {
+        "City": "San Juan",
+        "Country": "Puerto Rico",
+        "Lat": 18.4655,
+        "Lon": -66.1057
+    },
+    {
+        "City": "Paramaribo",
+        "Country": "Suriname",
+        "Lat": 5.852,
+        "Lon": -55.2038
+    },
+    {
+        "City": "Georgetown",
+        "Country": "Guyana",
+        "Lat": 6.8013,
+        "Lon": -58.1551
+    },
+    {
+        "City": "Cayenne",
+        "Country": "French Guiana",
+        "Lat": 4.922,
+        "Lon": -52.3233
+    },
+    {
+        "City": "Kinshasa",
+        "Country": "Democratic Republic of Congo",
+        "Lat": -4.4419,
+        "Lon": 15.2663
+    },
+    {
+        "City": "Port of Spain",
+        "Country": "Trinidad and Tobago",
+        "Lat": 10.6549,
+        "Lon": -61.5019
+    },
+    {
+        "City": "El Aaiún",
+        "Country": "Western Sahara",
+        "Lat": 27.1536,
+        "Lon": -13.2033
+    },
+    {
+        "City": "Yamoussoukro",
+        "Country": "Cote d'Ivoire",
+        "Lat": 6.827,
+        "Lon": -5.2893
+    },
+    {
+        "City": "Nouméa",
+        "Country": "New Caledonia",
+        "Lat": -22.2758,
+        "Lon": 166.458
+    },
+    {
+        "City": "Honiara",
+        "Country": "Solomon Islands",
+        "Lat": -9.4456,
+        "Lon": 159.9729
+    },
+    {
+        "City": "Port Vila",
+        "Country": "Vanuatu",
+        "Lat": -17.7333,
+        "Lon": 168.3273
+    }
+];
 
-    ,{
-      "City": "Caracas",
-      "Country": "Venezuela",
-      "Lat": 10.4806,
-      "Lon": -66.9036
-  },
-  {
-      "City": "Hanoi",
-      "Country": "Vietnam",
-      "Lat": 21.0285,
-      "Lon": 105.8542
-  },
-  {
-      "City": "Sana'a",
-      "Country": "Yemen",
-      "Lat": 15.3694,
-      "Lon": 44.1910
-  },
-  {
-      "City": "Lusaka",
-      "Country": "Zambia",
-      "Lat": -15.4167,
-      "Lon": 28.2833
-  },
-  {
-      "City": "Harare",
-      "Country": "Zimbabwe",
-      "Lat": -17.8252,
-      "Lon": 31.0335
-  }
-  ];
-  
+module.exports = capitalCities 
+
+
+// const capitalCities =[
+// {
+//     "City": "Kotte",
+//     "Country": "Sri Lanka",
+//     "Lat": 6.9271,
+//     "Lon": 79.8612
+// }]
+
+// module.exports = capitalCities 
