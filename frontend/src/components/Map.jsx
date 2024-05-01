@@ -84,6 +84,7 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
                 onClick={() => handleClick(geo)} 
                 fill={fillColour} //look into changing this colour 
                 onMouseEnter={() => {
+                  console.log(geo.properties.name)
                   let locationData = data.find( item => item.location === city)
                   if (locationData) {
                     let componentValue = locationData[componentFilter]
