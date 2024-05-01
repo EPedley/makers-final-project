@@ -30,13 +30,14 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
 
     else if (componentFilter !== "") {
       setChartType('heatmap');
+      // setChartHeight('4000px');
     
       // Create a set of all dates from the data
       const allDates = new Set(data.map(item => item.date));
-      
+    
       // Convert the set of dates to an array and sort them chronologically
       const sortedDates = Array.from(allDates).sort((a, b) => new Date(a) - new Date(b));
-      
+    
       // Create a complete dataset with zero values for missing dates
       const completeData = [];
       sortedDates.forEach(date => {
@@ -49,6 +50,8 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
               name: city.City
             });
           } else {
+            // If data is missing for the 15th of April, log a message for debugging
+            console.log(`Data missing for ${city.City} on ${date}`);
             completeData.push({
               x: date,
               y: 0,
@@ -64,8 +67,9 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
         data: completeData.filter(item => item.name === city.City),
         color: colourMap[componentFilter].max
       }));
-      setchartHeight('3000px')
     }
+    
+    
     
 
     else {
