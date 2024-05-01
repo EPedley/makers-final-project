@@ -30,9 +30,7 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
   let maxColour = ""
   let minValue = 0
   let maxValue = 0
-  // UPDATE ONCE NEW DATA DOWNLOADED
-  let day = 23
-  // let day = date.getDate()
+  let day = date.getDate()
 
   if (data) {
     data = data.filter(entry => {
