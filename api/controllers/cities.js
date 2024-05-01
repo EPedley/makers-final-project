@@ -1,4 +1,4 @@
-const City = require("../models/city");
+const City = require("../models/City");
 const { MongoClient } = require('mongodb');
 const apiKey = require('../../apiKey');
 const countries = require("../data/capitalCitiesList");
@@ -8,16 +8,35 @@ const { sub } = require('date-fns');
 require("dotenv").config();
 
 
+const getData = async (req, res) => {
+  // get the latest date for when we want data
+  let dateTwoDaysAgo = new Date()
+  dateTwoDaysAgo.setHours(13, 0, 0, 0)
+  dateTwoDaysAgo.setDate(dateTwoDaysAgo.getDate() - 2)
+
+  // get existing data
+  let data = await City.find();
+
+  // get the latest date from data
+  const unix = Math.max(...data.map(item => item["date"]))
+  const maxDate = new Date(unix)
+
+  if (maxDate < dateTwoDaysAgo) {
+    insertData(maxDate, dateTwoDaysAgo)
+    data = await City.find();
+  } else {
+    console.log("Data is already up to date")
+  }
+
+  // check res status
+  res.status(200).json({ data: data});
+};
+
 async function fetchDataFromAPI(lat, lon, startDate, endDate) {
   const unixEndDate = Math.floor(new Date(endDate).getTime() / 1000)
   const unixStartDate = Math.floor(new Date(startDate).getTime() / 1000)
-  console.log(startDate)
-  console.log(unixStartDate)
-  console.log(endDate)
-  console.log(unixEndDate)
   const apiKeytoUse = apiKey
   const apiURL = `http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${lat}&lon=${lon}&start=${unixStartDate}&end=${unixEndDate}&appid=${apiKeytoUse}`;
-  console.log(apiURL)
   
   try {
     const response = await fetch(apiURL, {
@@ -79,28 +98,10 @@ async function insertData(startDate, endDate)  {
   }
 }
 
-const getData = async () => {
-  let dateTwoDaysAgo = new Date()
-  dateTwoDaysAgo.setHours(12, 0, 0, 0)
-  dateTwoDaysAgo.setDate(dateTwoDaysAgo.getDate() - 2)
-  let data = await City.find();
-  // get the date for last time the data was pulled
-  const unix = Math.max(...data.map(item => item["date"]))
-  const maxDate = new Date(unix)
-  // console.log(maxDate)
-  if (maxDate < dateTwoDaysAgo) {
-    insertData(maxDate, dateTwoDaysAgo)
-  } else {
-    console.log("Data is already up to date")
-  }
-  // data = await City.find();
-  // res.status(200).json({ data: data});
-};
 
 const CitiesController = {
   getData: getData,
 };
 
-getData()
 
 module.exports = CitiesController;
