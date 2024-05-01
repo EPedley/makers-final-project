@@ -216,12 +216,6 @@ const capitalCities = [
         "Lon": 15.2429
     },
     {
-        "City": "Kinshasa",
-        "Country": "Congo (Democratic Republic)",
-        "Lat": -4.4419,
-        "Lon": 15.2663
-    },
-    {
         "City": "San José",
         "Country": "Costa Rica",
         "Lat": 9.9281,
