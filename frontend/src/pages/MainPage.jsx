@@ -11,7 +11,7 @@ import "./MainPage.css"
 import { About } from "../components/About";
 import { Map } from "../components/Map";
 import { InformationButton } from "../components/InformationButton";
-import ChartComponent from "../components/TableV2"
+import ChartComponent from "../components/Table"
 
 // data
 import components from "../data/ComponentList";
