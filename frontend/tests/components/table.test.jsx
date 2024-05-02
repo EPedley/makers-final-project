@@ -1,9 +1,10 @@
 // ChartComponent.test.js
 import { render, screen } from "@testing-library/react";
 import ChartComponent from "../../src/components/Table";
+import { expect } from "chai";
 
 describe("ChartComponent", () => {
-  test("renders ChartComponent with default props", () => {
+  it("renders ChartComponent with default props", () => {
     const data = [
       { date: "2024-01-01", location: "City1", component1: 10, component2: 20 },
       { date: "2024-01-02", location: "City2", component1: 15, component2: 25 },
@@ -18,10 +19,9 @@ describe("ChartComponent", () => {
         countryFilter={countryFilter}
       />
     );
+    
 
     const chartElement = screen.getByTestId("chart");
-    console.log(chartElement)
-    expect(chartElement).toBeInTheDocument();
-
+    expect(chartElement).to.exist;
   });
 });
