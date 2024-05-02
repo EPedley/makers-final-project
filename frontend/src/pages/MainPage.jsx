@@ -11,7 +11,7 @@ import "./MainPage.css"
 import { About } from "../components/About";
 import { Map } from "../components/Map";
 import { InformationButton } from "../components/InformationButton";
-import ChartComponent from "../components/TableV2"
+import ChartComponent from "../components/Table"
 
 // data
 import components from "../data/ComponentList";
@@ -23,7 +23,7 @@ export const MainPage = () => {
     const [countryFilter, setCountryFilter] = useState("");
     const [aboutVisible, setAboutVisible] = useState(false);
     const date = new Date(Date.now() - (2*864e5))
-    
+
     const handleComponentFilterChange = (event) => {
       const inputEl = event.target;
       setComponentFilter(inputEl.value);
