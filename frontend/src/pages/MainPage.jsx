@@ -21,8 +21,8 @@ export const MainPage = () => {
     const [data, setData] = useState([]);
     const [componentFilter, setComponentFilter] = useState("aqi");
     const [countryFilter, setCountryFilter] = useState("");
-    const date = new Date(Date.now() - 864e5)
     const [aboutVisible, setAboutVisible] = useState(false);
+    const date = new Date(Date.now() - (2*864e5))
 
     const handleComponentFilterChange = (event) => {
       const inputEl = event.target;
