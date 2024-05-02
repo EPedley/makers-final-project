@@ -36,7 +36,7 @@ export const MainPage = () => {
     useEffect(() => {
         loadDataFromMongoDB()
         .then(data => {
-            setData(data)
+          setData(data)
         })
         .catch(error => {
             console.error('An error occurred:', error);
