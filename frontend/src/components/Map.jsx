@@ -57,7 +57,7 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
     handleCountryFilterChange(city)
   }
 
-  return (<>
+  return (<div data-testid="map">
     <ComposableMap width={1500}>
       <Sphere fill="#fef5f4" stroke="#E4E5E6" strokeWidth={0.5} />
       <Graticule stroke="#E3E2E4" strokeWidth={0.5}/>
@@ -113,7 +113,7 @@ export const Map = ( { handleCountryFilterChange, countryFilter, componentFilter
       </Geographies>
     </ComposableMap>
     <Tooltip id="my-tooltip-multiline" style={{backgroundColor: '#E27396', color: 'white' }} />
-  </>
+  </div>
   )
 }
 

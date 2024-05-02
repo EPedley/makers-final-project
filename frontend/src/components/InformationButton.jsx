@@ -22,7 +22,8 @@ export const InformationButton = ({ componentFilter }) => {
   };
 
   return (
-    <button
+    <button 
+      data-testid="infoButton"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{ border: 'none', background: 'none', cursor: 'pointer' }}
@@ -42,7 +43,7 @@ export const InformationButton = ({ componentFilter }) => {
           }}
         >
 
-          <strong>{information.name}</strong>
+          <strong data-testid="title">{information.name}</strong>
 
           {information.description.split('\n').map((line, index) => (
             <p key={index}>{line}</p>

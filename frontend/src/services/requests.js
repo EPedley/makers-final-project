@@ -1,5 +1,6 @@
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
+
 const loadDataFromMongoDB = async () => {
   const requestOptions = {
     method: "GET",
@@ -15,6 +16,7 @@ const loadDataFromMongoDB = async () => {
   }
 
   const data = await response.json();
+
   return data;
 };
 
