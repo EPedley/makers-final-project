@@ -14,7 +14,7 @@ a {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
     padding-top: 20px;
 }
 
@@ -35,11 +35,10 @@ img {
     border: none;
     cursor: pointer;
     /* position */
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
     z-index: 9999;
-    position: absolute;
 }
 
 .aboutOverlay {
@@ -68,24 +67,24 @@ img {
 .mapLabel {
     width: 100%;
     text-align: center;
-    margin-top: -70px;
+    margin-top: -25px;
     margin-bottom: 60px;
     /* color: #E27396; */
 }
 
 .select {
-    position: relative; /* Ensure relative positioning for absolute positioning of arrow */
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: -20px;
 }
 
 .select select {
     font-family: 'Arial';
     text-align: center;
     cursor: pointer;
-    padding: 15px ; /* Added padding on the right side to accommodate the arrow */
     outline: 0;
     border: 0;
     border-radius: 100px;
@@ -94,17 +93,9 @@ img {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    width: 10%;
-    height: 10%;
-    text-align-last: center;
+    width: 150px; /* Increased width for bigger button */
+    height: 50px; /* Adjusted height to accommodate variable text length */
+    font-size: 15px; /* Increased font size */
+    line-height: 3; /* Set line height for better readability */
 }
 
-/* Style the dropdown arrow */
-.select_arrow {
-    content: "\25BC"; /* Unicode `character for down arrow */
-    top: calc(50% - 6px); /* Adjust position of arrow vertically */
-    font-size: 12px; /* Adjust size of arrow */
-    pointer-events: none;
-    color: #000000; /* Match the color of the arrow with the select background */
-    z-index: 9999;
-}
