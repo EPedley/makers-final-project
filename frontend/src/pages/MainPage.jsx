@@ -37,6 +37,7 @@ export const MainPage = () => {
         loadDataFromMongoDB()
         .then(data => {
             setData(data)
+            console.log(data)
         })
         .catch(error => {
             console.error('An error occurred:', error);
@@ -70,7 +71,7 @@ export const MainPage = () => {
         </div>
       )}
 
-      <div className="select">
+      <div className="select" data-testid="dropdown">
         <select name="componentFilter" id="componentFilter" onChange={handleComponentFilterChange}>
           {components.map((component, index) => (
             <option key={index} value={component.value}>{component.label}</option>
@@ -87,7 +88,7 @@ export const MainPage = () => {
         date={date}
       />
 
-      <div className = "mapLabel">
+      <div className = "mapLabel" data-testid="mapLabel">
         World mapchart showing 
         {data && " " + components.find(component => component.value === componentFilter)?.label} 
         <InformationButton componentFilter={componentFilter}/>

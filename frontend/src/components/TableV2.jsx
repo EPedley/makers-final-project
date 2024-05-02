@@ -91,7 +91,7 @@ const ChartComponent = ( { data, componentFilter, countryFilter } ) => {
     };
   }, [componentFilter, countryFilter, chartType, data]);
 
-  return <div id="chart"></div>;
+  return <div id="chart" data-testid="chart"></div>;
 };
 
 export default ChartComponent;
